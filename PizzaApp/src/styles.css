@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+.tabs {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tabs .tab:hover {
+  cursor: pointer;
+}
+.tabs .tab .active {
+  border-bottom: 4px solid;
+}
