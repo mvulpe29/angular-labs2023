@@ -2,10 +2,12 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {TabsComponent} from './tabs/tabs.component';
+import {TabsComponent} from "./tabs/tabs.component";
 import {FormsModule} from "@angular/forms";
-import {ReviewsComponent} from './reviews/reviews.component';
-import {PizzaFileService} from "./pizza-file.service";
+import {PizzaFileService} from './pizza-file.service';
+import {ReviewsComponent} from "./reviews/reviews.component";
+import {PizzaRestService} from "./pizza-rest.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -15,9 +17,10 @@ import {PizzaFileService} from "./pizza-file.service";
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [PizzaFileService],
+  providers: [PizzaFileService, PizzaRestService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
