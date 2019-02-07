@@ -1,0 +1,9 @@
+**/.idea/
+**/node_modules/
+**/target
+**/*.js
+**/*.js.map
+
+!**/**/webpack.config.js
+!**/**/karma.conf.js
+!**/**/protractor.conf.js
