@@ -3,7 +3,7 @@ import {PIZZAS} from "./app.data";
 import {IPizza} from "./app.model";
 
 @Injectable()
-export class PizzaService {
+export class PizzaFileService {
 
   constructor() {
   }
