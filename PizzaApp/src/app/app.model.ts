@@ -4,6 +4,14 @@ export interface IPizza {
   weight: number,
   image: string,
   ingredients: string,
+  reviews: Array<IReview>,
   canPurchase: boolean,
   soldOut: boolean
+}
+
+export interface IReview{
+  stars?: number,
+  body?: string,
+  author?: string,
+  createdOn?: number
 }
