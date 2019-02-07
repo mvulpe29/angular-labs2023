@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IReview} from "../app.model";
+import {IReview} from "../../pizza.model";
 
 @Component({
   selector: 'reviews',

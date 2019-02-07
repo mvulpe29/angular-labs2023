@@ -1,6 +1,4 @@
-import {Component, Inject} from "@angular/core";
-import {IPizza} from "./app.model";
-import {IPizzaService, PIZZA_SERVICE} from "./pizza.service";
+import {Component} from "@angular/core";
 
 @Component({
   selector: 'app-root',
@@ -8,10 +6,7 @@ import {IPizzaService, PIZZA_SERVICE} from "./pizza.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private pizzas: Array<IPizza>;
 
-  constructor(@Inject(PIZZA_SERVICE) private pizzaService: IPizzaService) {
-    this.pizzaService.getPizzas()
-      .subscribe(pizzas => this.pizzas = pizzas);
+  constructor() {
   }
 }

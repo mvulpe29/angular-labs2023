@@ -1,6 +1,6 @@
 import {Injectable, Provider} from '@angular/core';
-import {PIZZAS} from "./app.data";
-import {IPizza} from "./app.model";
+import {PIZZAS} from "./pizza.data";
+import {IPizza} from "./pizza.model";
 import {IPizzaService, PIZZA_SERVICE} from "./pizza.service";
 import {Observable} from "rxjs";
 

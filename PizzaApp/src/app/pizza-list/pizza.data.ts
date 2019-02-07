@@ -1,4 +1,4 @@
-import {IPizza} from "./app.model";
+import {IPizza} from "./pizza.model";
 
 export let PIZZAS: Array<IPizza> = [
   {

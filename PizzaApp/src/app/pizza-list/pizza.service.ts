@@ -1,4 +1,4 @@
-import {IPizza} from './app.model';
+import {IPizza} from './pizza.model';
 import {InjectionToken} from '@angular/core';
 import {Observable} from "rxjs";
 

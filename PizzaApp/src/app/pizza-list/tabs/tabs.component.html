@@ -6,15 +6,8 @@
   </ul>
 </div>
 <div class="card-content">
-  <div class="ingredients" *ngIf="isSelected(1)">
-    <h5>Ingredients</h5>
-    <blockquote>{{pizza.ingredients}}</blockquote>
-  </div>
-  <div class="extras" *ngIf="isSelected(2)">
-    <h5>Extras</h5>
-    <blockquote>Not yet</blockquote>
-  </div>
-
+  <ingredients *ngIf="isSelected(1)" [ingredients]="pizza.ingredients"></ingredients>
+  <extras *ngIf="isSelected(2)"></extras>
   <reviews *ngIf="isSelected(3)" [reviews]="pizza.reviews"></reviews>
 </div>
 
