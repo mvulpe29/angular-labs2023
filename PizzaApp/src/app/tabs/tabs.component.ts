@@ -1,5 +1,5 @@
 import {Component, Input} from "@angular/core";
-import {IPizza, IReview} from "../app.model";
+import {IPizza} from "../app.model";
 
 @Component({
   selector: 'tabs',
@@ -12,11 +12,9 @@ export class TabsComponent {
   private pizza: IPizza;
 
   private tab: number;
-  private newReview: IReview;
 
   constructor() {
     this.tab = 1;
-    this.newReview = {};
   }
 
   public selectTab(tid: number) {
@@ -25,11 +23,5 @@ export class TabsComponent {
 
   public isSelected(tid: number): boolean {
     return this.tab === tid;
-  }
-
-  public onSubmit() {
-    this.newReview.createdOn = new Date().getMilliseconds();
-    this.pizza.reviews.push(this.newReview);
-    this.newReview = {};
   }
 }

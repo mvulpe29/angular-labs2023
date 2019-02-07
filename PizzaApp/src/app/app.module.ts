@@ -4,11 +4,13 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {TabsComponent} from './tabs/tabs.component';
 import {FormsModule} from "@angular/forms";
+import { ReviewsComponent } from './reviews/reviews.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TabsComponent
+    TabsComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,

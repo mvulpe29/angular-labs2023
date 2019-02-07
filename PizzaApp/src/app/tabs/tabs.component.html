@@ -15,39 +15,6 @@
     <blockquote>Not yet</blockquote>
   </div>
 
-  <div class="reviews" *ngIf="isSelected(3)">
-    <h5>Reviews</h5>
-    <blockquote *ngFor="let review of pizza.reviews">
-      <b> Stars: {{review.stars}}</b> {{review.body}}
-      <cite>by: {{review.author}}</cite>
-    </blockquote>
-
-    <blockquote>
-      <b> Stars: {{newReview?.stars}}</b> {{newReview?.body}}
-      <cite>by: {{newReview?.author}}</cite>
-    </blockquote>
-
-    <h5>Submit a review</h5>
-
-    <form class="new-review" (ngSubmit)="onSubmit()">
-      <label>Rate the Product</label>
-      <select class="form-control" [(ngModel)]="newReview.stars" name="stars">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-
-      <textarea placeholder="Write a short review for the pizza..." class="form-control materialize-textarea"
-                [(ngModel)]="newReview.body" name="body"></textarea>
-      <input type="email" placeholder="jimmyDean@example.org" class="form-control" [(ngModel)]="newReview.author"
-             name="email">
-      <div class="right-align">
-        <button type="submit" class="btn">Submit Review</button>
-      </div>
-    </form>
-  </div>
-
+  <reviews *ngIf="isSelected(3)" [reviews]="pizza.reviews"></reviews>
 </div>
 
