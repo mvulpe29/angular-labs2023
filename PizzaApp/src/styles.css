@@ -10,3 +10,8 @@
 .tabs .tab .active {
   border-bottom: 4px solid;
 }
+
+
+select{
+  display: block;
+}
