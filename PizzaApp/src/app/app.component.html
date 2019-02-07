@@ -2,14 +2,14 @@
   <div id="pizza" *ngFor='let pizza of pizzas'>
     <div class="card horizontal" *ngIf="!pizza.soldOut">
       <div class="card-image">
-        <img height="190px">
+        <img height="190px" [src]="pizza.image">
       </div>
       <div class="card-stacked">
         <div class="card-content">
           <p class="card-title">
             {{pizza.name}} ({{pizza.weight}}) g
           </p>
-          <p>{{pizza.price}} RON</p>
+          <p>{{pizza.price | currency}}</p>
           <p>{{pizza.ingredients}}</p>
         </div>
         <div class="card-action" *ngIf="pizza.canPurchase">
