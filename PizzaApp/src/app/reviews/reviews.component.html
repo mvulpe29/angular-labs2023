@@ -11,21 +11,28 @@
 
 <h5>Submit a review</h5>
 
-<form class="new-review" (ngSubmit)="onSubmit()">
+<form class="new-review" (ngSubmit)="onSubmit()" #newForm="ngForm">
   <label>Rate the Product</label>
-  <select class="form-control" [(ngModel)]="newReview.stars" name="stars">
+  <select class="form-control" [(ngModel)]="newReview.stars" name="stars" required #stars="ngModel">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
     <option value="4">4</option>
     <option value="5">5</option>
   </select>
+  <div class="error" [class.hide]="stars.valid">
+    Rating is required!
+  </div>
 
   <textarea placeholder="Write a short review for the pizza..." class="form-control materialize-textarea"
             [(ngModel)]="newReview.body" name="body"></textarea>
-  <input type="email" placeholder="jimmyDean@example.org" class="form-control" [(ngModel)]="newReview.author"
-         name="email">
+  <input type="email" required email #author="ngModel" placeholder="jimmyDean@example.org" class="form-control" [(ngModel)]="newReview.author"
+         name="email" >
+  <div class="error" [class.hide]="author.valid">
+    Author is required!
+  </div>
+
   <div class="right-align">
-    <button type="submit" class="btn">Submit Review</button>
+    <button type="submit" class="btn" [disabled]="!newForm.form.valid">Submit Review</button>
   </div>
 </form>
