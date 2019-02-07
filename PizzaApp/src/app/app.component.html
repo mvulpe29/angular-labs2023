@@ -10,12 +10,11 @@
             {{pizza.name}} ({{pizza.weight}}) g
           </p>
           <p>{{pizza.price | currency}}</p>
-          <p>{{pizza.ingredients}}</p>
         </div>
         <div class="card-action" *ngIf="pizza.canPurchase">
           <button id="add" name="add" class="btn"> Add to Cart</button>
         </div>
-        <!--<tabs></tabs>-->
+        <tabs [pizza]="pizza"></tabs>
       </div>
     </div>
   </div>

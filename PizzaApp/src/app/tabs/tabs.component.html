@@ -1,0 +1,21 @@
+<div class="card-tabs">
+  <ul class="tabs">
+    <li class="tab"><a (click)='selectTab(1)' [class.active]="isSelected(1)">Ingredients</a></li>
+    <li class="tab"><a (click)='selectTab(2)' [class.active]="isSelected(2)">Extras</a></li>
+    <li class="tab"><a (click)='selectTab(3)' [class.active]="isSelected(3)">Reviews</a></li>
+  </ul>
+</div>
+<div class="card-content">
+  <div class="ingredients" *ngIf="isSelected(1)">
+    <h5>Ingredients</h5>
+    <blockquote>{{pizza.ingredients}}</blockquote>
+  </div>
+  <div class="extras" *ngIf="isSelected(2)">
+    <h5>Extras</h5>
+    <blockquote>Not yet</blockquote>
+  </div>
+  <div class="reviews" *ngIf="isSelected(3)">
+    <h5>Reviews</h5>
+    <blockquote>Not yet</blockquote>
+  </div>
+</div>
