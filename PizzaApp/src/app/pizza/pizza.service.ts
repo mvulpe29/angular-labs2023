@@ -3,6 +3,8 @@ import {InjectionToken} from '@angular/core';
 import {Observable} from "rxjs";
 
 export interface IPizzaService {
+  getPizza(id:string): Observable<IPizza>;
+
   getPizzas(): Observable<Array<IPizza>>;
 
   addReview(pizza: IPizza, review: IReview): Observable<IPizza>;

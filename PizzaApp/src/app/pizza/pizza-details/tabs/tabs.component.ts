@@ -1,6 +1,6 @@
 import {Component, Inject, Input} from "@angular/core";
-import {IPizza, IReview} from "../pizza.model";
-import {IPizzaService, PIZZA_SERVICE} from "../pizza.service";
+import {IPizza, IReview} from "../../pizza.model";
+import {IPizzaService, PIZZA_SERVICE} from "../../pizza.service";
 
 @Component({
   selector: 'tabs',

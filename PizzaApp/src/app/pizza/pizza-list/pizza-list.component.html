@@ -1,0 +1,10 @@
+<div *ngFor='let pizza of pizzas' class='list'>
+  <div *ngIf="!pizza.soldOut" class="card horizontal"  (click)="goToPizza(pizza)">
+    <div class="card-image">
+      <img height="90px" [src]="pizza.image">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator">{{pizza.name}} ({{pizza.weight}}) g - {{pizza.price | currency}}</span>
+    </div>
+  </div>
+</div>

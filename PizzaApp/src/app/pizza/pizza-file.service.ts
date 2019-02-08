@@ -10,6 +10,10 @@ export class PizzaFileService implements IPizzaService {
   constructor() {
   }
 
+  getPizza(id: string): Observable<IPizza> {
+    return of(PIZZAS.find(pizza => pizza._id === id));
+  }
+
   getPizzas(): Observable<Array<IPizza>> {
     return Observable.create(observer => {
       observer.next(PIZZAS);
