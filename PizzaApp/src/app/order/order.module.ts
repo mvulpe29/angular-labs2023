@@ -5,6 +5,7 @@ import {OrderRoutingModule} from './order-routing.module';
 import {OrderListComponent} from './order-list/order-list.component';
 import {OrderServiceProvider} from './order.service';
 import {FormsModule} from '@angular/forms';
+import { PriceValidatorDirective } from './price-validator.directive';
 
 @NgModule({
   imports: [
@@ -12,7 +13,7 @@ import {FormsModule} from '@angular/forms';
     OrderRoutingModule,
     FormsModule
   ],
-  declarations: [OrderListComponent],
+  declarations: [OrderListComponent, PriceValidatorDirective],
   providers: [OrderServiceProvider]
 })
 export class OrderModule {

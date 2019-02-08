@@ -1,5 +1,5 @@
 <div class="container">
-  <form class="new-order" (ngSubmit)="onSubmit()" #orderForm="ngForm" *ngIf="customer && pizzasOrders">
+  <form class="new-order" (ngSubmit)="onSubmit()" #orderForm="ngForm">
 
     <ng-container>
       <label>Name</label>
@@ -21,13 +21,14 @@
     </ng-container>
 
     <label>Rate the Product</label>
-    <select multiple class="form-control multiple-select" ngModel name="pizzasOrders" required>
+    <select multiple class="form-control multiple-select" ngModel name="pizzasOrders" required price-validator
+            #pizzas="ngModel">
       <ng-container *ngFor="let pizzaOrder of pizzasOrders">
         <option [value]="pizzaOrder">
           {{pizzaOrder.pizza.name}}
       </ng-container>
     </select>
-
+    <p>price error: {{pizzas.control?.errors| json}}</p>
     <div>
       Is valid: {{orderForm.form.valid}}
     </div>
