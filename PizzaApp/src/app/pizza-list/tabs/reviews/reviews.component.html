@@ -1,5 +1,5 @@
 <h5>Reviews</h5>
-<blockquote *ngFor="let review of reviews">
+<blockquote *ngFor="let review of pizza.reviews">
   <b> Stars: {{review.stars}}</b> {{review.body}}
   <cite>by: {{review.author}}</cite>
 </blockquote>
@@ -26,8 +26,9 @@
 
   <textarea placeholder="Write a short review for the pizza..." class="form-control materialize-textarea"
             [(ngModel)]="newReview.body" name="body"></textarea>
-  <input type="email" required email #author="ngModel" placeholder="jimmyDean@example.org" class="form-control" [(ngModel)]="newReview.author"
-         name="email" >
+  <input type="email" required email #author="ngModel" placeholder="jimmyDean@example.org" class="form-control"
+         [(ngModel)]="newReview.author"
+         name="email">
   <div class="error" [class.hide]="author.valid">
     Author is required!
   </div>

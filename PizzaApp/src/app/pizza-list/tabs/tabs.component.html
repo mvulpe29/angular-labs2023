@@ -8,6 +8,6 @@
 <div class="card-content">
   <ingredients *ngIf="isSelected(1)" [ingredients]="pizza.ingredients"></ingredients>
   <extras *ngIf="isSelected(2)"></extras>
-  <reviews *ngIf="isSelected(3)" [reviews]="pizza.reviews"></reviews>
+  <reviews *ngIf="isSelected(3)" [pizza]="pizza"></reviews>
 </div>
 

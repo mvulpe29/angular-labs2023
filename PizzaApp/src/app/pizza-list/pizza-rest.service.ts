@@ -1,6 +1,6 @@
 import {Injectable, Provider} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {IPizza} from "./pizza.model";
+import {IPizza, IReview} from "./pizza.model";
 import {IPizzaService, PIZZA_SERVICE} from "./pizza.service";
 import {Observable} from "rxjs";
 
@@ -15,6 +15,12 @@ export class PizzaRestService implements IPizzaService {
   getPizzas(): Observable<Array<IPizza>> {
     return this.http.get<Array<IPizza>>(this.url);
   }
+
+  addReview(pizza: IPizza, review: IReview): Observable<IPizza> {
+    const url: string = this.url + '/addReview/' + pizza._id;
+    return this.http.put<IPizza>(url, review);
+  }
+
 }
 
 

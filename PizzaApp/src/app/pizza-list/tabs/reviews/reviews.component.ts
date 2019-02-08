@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {IReview} from "../../pizza.model";
+import {Component, Inject, Input, OnInit} from '@angular/core';
+import {IPizza, IReview} from "../../pizza.model";
+import {IPizzaService, PIZZA_SERVICE} from "../../pizza.service";
 
 @Component({
   selector: 'reviews',
@@ -8,10 +9,10 @@ import {IReview} from "../../pizza.model";
 })
 export class ReviewsComponent implements OnInit {
   @Input()
-  private reviews: Array<IReview>;
+  private pizza: IPizza;
   private newReview: IReview;
 
-  constructor() {
+  constructor(@Inject(PIZZA_SERVICE) private pizzaService: IPizzaService) {
     this.newReview = {};
   }
 
@@ -20,7 +21,12 @@ export class ReviewsComponent implements OnInit {
 
   public onSubmit() {
     this.newReview.createdOn = new Date().getMilliseconds();
-    this.reviews.push(this.newReview);
+    this.pizzaService.addReview(this.pizza, this.newReview)
+      .subscribe(pizza => {
+        this.pizza = pizza;
+        this.newReview = {};
+      });
+
     this.newReview = {};
   }
 }
