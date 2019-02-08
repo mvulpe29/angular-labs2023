@@ -1,44 +1,43 @@
 <div class="container">
-  <form class="new-order" (ngSubmit)="onSubmit()" #orderForm="ngForm">
+  <form class="new-order" [formGroup]="orderForm">
 
-    <ng-container>
+    <ng-container formGroupName="customer">
       <label>Name</label>
-      <input type="text" required #email="ngModel" class="form-control"
-             [(ngModel)]="customer.name"
+      <input type="text" class="form-control"
+             formControlName="name"
              name="name">
       <label>Email</label>
-      <input type="email" required email #email="ngModel" placeholder="jimmyDean@example.org" class="form-control"
-             [(ngModel)]="customer.email"
+      <input type="email" placeholder="jimmyDean@example.org" class="form-control"
+             formControlName="email"
              name="email">
       <label>Phone</label>
-      <input type="tel" required #phone="ngModel" placeholder="0740561805" class="form-control"
-             [(ngModel)]="customer.phone"
+      <input type="tel" placeholder="0740561805" class="form-control"
+             formControlName="phone"
              name="phone">
       <label>Address</label>
-      <input type="text" required #address="ngModel" placeholder="Filaret Barbu, nr. 19, Timisoara" class="form-control"
-             [(ngModel)]="customer.address"
+      <input type="text" placeholder="Filaret Barbu, nr. 19, Timisoara" class="form-control"
+             formControlName="address"
              name="address">
     </ng-container>
 
     <label>Rate the Product</label>
-    <select multiple class="form-control multiple-select" ngModel name="pizzasOrders" required price-validator
-            #pizzas="ngModel">
+    <select multiple class="form-control multiple-select" formControlName="pizzaOrders">
       <ng-container *ngFor="let pizzaOrder of pizzasOrders">
         <option [value]="pizzaOrder">
           {{pizzaOrder.pizza.name}}
       </ng-container>
     </select>
-    <p>price error: {{pizzas.control?.errors| json}}</p>
+    <p>price error: {{orderForm.get('pizzaOrders')?.errors| json}}</p>
     <div>
-      Is valid: {{orderForm.form.valid}}
+      Is valid: {{orderForm.valid}}
     </div>
     <div>
       <p>Form value</p>
-      {{orderForm.form.value | json}}
+      {{orderForm.value | json}}
     </div>
 
     <div class="right-align">
-      <button type="submit" class="btn" [disabled]="!orderForm.form.valid">Submit order</button>
+      <button type="submit" class="btn" [disabled]="!orderForm.valid">Submit order</button>
     </div>
   </form>
 
