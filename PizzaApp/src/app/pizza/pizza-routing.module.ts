@@ -3,13 +3,10 @@ import {RouterModule, Routes} from '@angular/router';
 import {PizzaListComponent} from './pizza-list/pizza-list.component';
 import {PizzaDetailsComponent} from './pizza-details/pizza-details.component';
 
-const routes: Routes = [{
-  path: 'pizzas',
-  children: [
-    {path: '', component: PizzaListComponent},
-    {path: ':id', component: PizzaDetailsComponent}
-  ]
-}];
+const routes: Routes = [
+  {path: '', component: PizzaListComponent},
+  {path: ':id', component: PizzaDetailsComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

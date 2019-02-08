@@ -4,9 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {CommonsModule} from './commons/commons.module';
-import {CustomerModule} from './customer/customer.module';
-import {PizzaModule} from './pizza/pizza.module';
-import {AppRoutingModule} from "./app-routing.module";
+import {AppRoutingModule} from './app-routing.module';
 
 
 @NgModule({
@@ -17,9 +15,7 @@ import {AppRoutingModule} from "./app-routing.module";
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    CommonsModule,
-    PizzaModule,
-    CustomerModule
+    CommonsModule
   ],
   bootstrap: [AppComponent]
 })
