@@ -1,0 +1,6 @@
+.multiple-select {
+  height: auto;
+}
+.multiple-select option {
+  padding: 8px;
+}

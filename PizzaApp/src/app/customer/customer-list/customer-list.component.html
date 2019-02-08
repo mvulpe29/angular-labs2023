@@ -4,4 +4,7 @@
       <span class="card-title"> {{customer.name}} </span>
     </div>
   </div>
+  <button class="btn" style="width: 100%" [routerLink]="['/orders']" [queryParams]="{ customer: customer._id }">create
+    an order
+  </button>
 </div>

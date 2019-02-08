@@ -1,0 +1,44 @@
+<div class="container">
+  <form class="new-order" (ngSubmit)="onSubmit()" #orderForm="ngForm" *ngIf="customer && pizzasOrders">
+
+    <ng-container>
+      <label>Name</label>
+      <input type="text" required #email="ngModel" class="form-control"
+             [(ngModel)]="customer.name"
+             name="name">
+      <label>Email</label>
+      <input type="email" required email #email="ngModel" placeholder="jimmyDean@example.org" class="form-control"
+             [(ngModel)]="customer.email"
+             name="email">
+      <label>Phone</label>
+      <input type="tel" required #phone="ngModel" placeholder="0740561805" class="form-control"
+             [(ngModel)]="customer.phone"
+             name="phone">
+      <label>Address</label>
+      <input type="text" required #address="ngModel" placeholder="Filaret Barbu, nr. 19, Timisoara" class="form-control"
+             [(ngModel)]="customer.address"
+             name="address">
+    </ng-container>
+
+    <label>Rate the Product</label>
+    <select multiple class="form-control multiple-select" ngModel name="pizzasOrders" required>
+      <ng-container *ngFor="let pizzaOrder of pizzasOrders">
+        <option [value]="pizzaOrder">
+          {{pizzaOrder.pizza.name}}
+      </ng-container>
+    </select>
+
+    <div>
+      Is valid: {{orderForm.form.valid}}
+    </div>
+    <div>
+      <p>Form value</p>
+      {{orderForm.form.value | json}}
+    </div>
+
+    <div class="right-align">
+      <button type="submit" class="btn" [disabled]="!orderForm.form.valid">Submit order</button>
+    </div>
+  </form>
+
+</div>

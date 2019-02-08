@@ -5,7 +5,8 @@ import {PreloadSelectedModulesService} from './preload-selected-modules.service'
 const routes: Routes = [
   {path: '', redirectTo: '/pizzas', pathMatch: 'full'},
   {path: 'pizzas', loadChildren: './pizza/pizza.module#PizzaModule', data: {preload: true}},
-  {path: 'customers', loadChildren: './customer/customer.module#CustomerModule'}
+  {path: 'customers', loadChildren: './customer/customer.module#CustomerModule'},
+  {path: 'orders', loadChildren: './order/order.module#OrderModule'}
 ];
 
 @NgModule({

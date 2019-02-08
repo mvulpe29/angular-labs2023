@@ -11,6 +11,8 @@ export interface INavigationService {
   openCustomers(): Promise<boolean>;
 
   getParam(activatedRoute, paramName: string): string;
+
+  getQueryParam(activatedRoute, paramName: string): string;
 }
 
 @Injectable()
@@ -37,6 +39,10 @@ export class NavigationService implements INavigationService {
 
   getParam(activatedRoute: ActivatedRoute, paramName: string): string {
     return activatedRoute.snapshot.params[paramName];
+  }
+
+  getQueryParam(activatedRoute: ActivatedRoute, paramName: string): string {
+    return activatedRoute.snapshot.queryParams[paramName];
   }
 }
 
