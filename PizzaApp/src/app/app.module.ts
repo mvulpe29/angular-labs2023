@@ -2,24 +2,36 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {TabsComponent} from "./pizza/pizza-details/tabs/tabs.component";
-import {FormsModule} from "@angular/forms";
-import {ReviewsComponent} from "./pizza/pizza-details/tabs/reviews/reviews.component";
-import {PizzaServiceProvider} from "./pizza/pizza-rest.service";
-import {HttpClientModule} from "@angular/common/http";
-import {ExtrasComponent} from './pizza/pizza-details/tabs/extras/extras.component';
-import {IngredientsComponent} from './pizza/pizza-details/tabs/ingredients/ingredients.component';
+import {TabsComponent} from './pizza/pizza-details/tabs/tabs.component';
+import {FormsModule} from '@angular/forms';
+import {ReviewsComponent} from './pizza/pizza-details/tabs/reviews/reviews.component';
+import {PizzaServiceProvider} from './pizza/pizza-rest.service';
+import {HttpClientModule} from '@angular/common/http';
 import {PizzaListComponent} from './pizza/pizza-list/pizza-list.component';
-import {CommonsModule} from "./commons/commons.module";
-import {RouterModule} from "@angular/router";
+import {IngredientsComponent} from './pizza/pizza-details/tabs/ingredients/ingredients.component';
+import {ExtrasComponent} from './pizza/pizza-details/tabs/extras/extras.component';
 import {PizzaDetailsComponent} from './pizza/pizza-details/pizza-details.component';
+import {RouterModule} from '@angular/router';
+import {CommonsModule} from './commons/commons.module';
+import {CustomerListComponent} from './customer/customer-list/customer-list.component';
+import {CustomerDetailsComponent} from './customer/customer-details/customer-details.component';
+import {CustomerServiceProvider} from './customer/customer.service';
 
-const PIZZA_ROUTES = [
+
+const ROUTES = [
+  {path: '', redirectTo: '/pizzas', pathMatch: 'full'},
   {
     path: 'pizzas',
     children: [
       {path: '', component: PizzaListComponent},
       {path: ':id', component: PizzaDetailsComponent}
+    ]
+  },
+  {
+    path: 'customers',
+    children: [
+      {path: '', component: CustomerListComponent},
+      {path: ':id', component: CustomerDetailsComponent}
     ]
   }
 ];
@@ -29,19 +41,21 @@ const PIZZA_ROUTES = [
     AppComponent,
     TabsComponent,
     ReviewsComponent,
-    ExtrasComponent,
-    IngredientsComponent,
     PizzaListComponent,
-    PizzaDetailsComponent
+    IngredientsComponent,
+    ExtrasComponent,
+    PizzaDetailsComponent,
+    CustomerListComponent,
+    CustomerDetailsComponent
   ],
   imports: [
-    RouterModule.forRoot(PIZZA_ROUTES),
+    RouterModule.forRoot(ROUTES),
     BrowserModule,
     FormsModule,
     HttpClientModule,
     CommonsModule
   ],
-  providers: [PizzaServiceProvider],
+  providers: [PizzaServiceProvider, CustomerServiceProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule {

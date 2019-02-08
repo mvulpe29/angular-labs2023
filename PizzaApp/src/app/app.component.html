@@ -1,3 +1,16 @@
+<nav>
+  <div class="nav-wrapper red darken-2 row">
+    <div class="col s12">
+      <a href="#" class="brand-logo "><i class="large material-icons">local_pizza</i>Pizza is life</a>
+      <ul id="nav-mobile" class="right">
+        <li><a (click)="goToPizzas()">Pizzas</a></li>
+        <li><a (click)="goToCustomers()">Customers</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <div class="container">
   <router-outlet></router-outlet>
 </div>
+

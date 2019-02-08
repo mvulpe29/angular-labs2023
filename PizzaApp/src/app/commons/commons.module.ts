@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {NavigationServiceProvider} from "./navigation.service";
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {NavigationServiceProvider} from './navigation.service';
 
 @NgModule({
   declarations: [],
@@ -9,4 +9,5 @@ import {NavigationServiceProvider} from "./navigation.service";
   ],
   providers: [NavigationServiceProvider]
 })
-export class CommonsModule { }
+export class CommonsModule {
+}

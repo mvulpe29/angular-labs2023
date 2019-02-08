@@ -1,4 +1,5 @@
-import {Component} from "@angular/core";
+import {Component, Inject} from '@angular/core';
+import {INavigationService, NAVIGATION_SERVICE} from './commons/navigation.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,14 @@ import {Component} from "@angular/core";
 })
 export class AppComponent {
 
-  constructor() {
+  constructor(@Inject(NAVIGATION_SERVICE) private navigationService: INavigationService) {
+  }
+
+  goToPizzas() {
+    return this.navigationService.openPizzas();
+  }
+
+  goToCustomers() {
+    return this.navigationService.openCustomers();
   }
 }
