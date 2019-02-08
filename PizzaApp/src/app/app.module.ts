@@ -3,22 +3,18 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
-import {RouterModule} from '@angular/router';
 import {CommonsModule} from './commons/commons.module';
 import {CustomerModule} from './customer/customer.module';
 import {PizzaModule} from './pizza/pizza.module';
+import {AppRoutingModule} from "./app-routing.module";
 
-
-const ROUTES = [
-  {path: '', redirectTo: '/pizzas', pathMatch: 'full'}
-];
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    RouterModule.forRoot(ROUTES),
+    AppRoutingModule,
     BrowserModule,
     HttpClientModule,
     CommonsModule,
