@@ -20,14 +20,9 @@
              name="address">
     </ng-container>
 
-    <label>Rate the Product</label>
-    <select multiple class="form-control multiple-select" formControlName="pizzaOrders">
-      <ng-container *ngFor="let pizzaOrder of pizzasOrders">
-        <option [value]="pizzaOrder">
-          {{pizzaOrder.pizza.name}}
-      </ng-container>
-    </select>
-    <p>price error: {{orderForm.get('pizzaOrders')?.errors| json}}</p>
+    <pizza-selection [pizzaOrderOptions]="pizzasOrders" formControlName="pizzaOrders"></pizza-selection>
+    <p>price error: {{orderForm.get('pizzaOrderOptions')?.errors| json}}</p>
+
     <div>
       Is valid: {{orderForm.valid}}
     </div>

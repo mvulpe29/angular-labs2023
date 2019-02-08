@@ -1,0 +1,7 @@
+<div>
+  <h4>Add pizzas</h4>
+  <div *ngFor="let pizzaOrder of pizzaOrderOptions">
+    <span style="width: 100px; display: inline-block">{{pizzaOrder.pizza.name}}</span>
+    <input type="number" [(ngModel)]="pizzaOrder.quantity" (change)="onChange()" style="width:calc(100% - 105px)"/>
+  </div>
+</div>

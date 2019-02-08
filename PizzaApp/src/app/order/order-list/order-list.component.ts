@@ -7,7 +7,7 @@ import {ActivatedRoute} from '@angular/router';
 import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {IOrder} from '../order.model';
 import {IPizza} from '../pizza.model';
-import {zip} from 'rxjs';
+import {zip} from "rxjs";
 import {map} from "rxjs/operators";
 
 @Component({
@@ -43,7 +43,7 @@ export class OrderListComponent implements OnInit {
       return pizzas.map(pizza => {
         return {
           pizza,
-          quantity: 1
+          quantity: 0
         };
       });
     }));
