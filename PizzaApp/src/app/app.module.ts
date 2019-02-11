@@ -8,6 +8,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {PreloadSelectedModulesService} from './preload-selected-modules.service';
 import {CustomerGuard} from './app.guards';
 import {AuthModule} from './auth/auth.module';
+import {MenuProviders} from './menu.provider';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import {AuthModule} from './auth/auth.module';
     AuthModule
   ],
   bootstrap: [AppComponent],
-  providers: [PreloadSelectedModulesService, CustomerGuard]
+  providers: [PreloadSelectedModulesService, CustomerGuard, ...MenuProviders]
 })
 export class AppModule {
 }
