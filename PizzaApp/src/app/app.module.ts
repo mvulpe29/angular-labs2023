@@ -6,6 +6,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {CommonsModule} from './commons/commons.module';
 import {AppRoutingModule} from './app-routing.module';
 import {PreloadSelectedModulesService} from './preload-selected-modules.service';
+import {CustomerGuard} from './app.guards';
+import {AuthModule} from './auth/auth.module';
 
 
 @NgModule({
@@ -16,10 +18,11 @@ import {PreloadSelectedModulesService} from './preload-selected-modules.service'
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    CommonsModule
+    CommonsModule,
+    AuthModule
   ],
   bootstrap: [AppComponent],
-  providers: [PreloadSelectedModulesService]
+  providers: [PreloadSelectedModulesService, CustomerGuard]
 })
 export class AppModule {
 }
