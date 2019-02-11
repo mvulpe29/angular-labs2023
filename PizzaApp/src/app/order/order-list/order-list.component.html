@@ -1,5 +1,5 @@
 <div class="container">
-  <form class="new-order" [formGroup]="orderForm">
+  <form class="new-order" [formGroup]="orderForm" (ngSubmit)="onSubmit()">
 
     <ng-container formGroupName="customer">
       <label>Name</label>
