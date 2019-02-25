@@ -5,7 +5,6 @@ import {AppComponent} from './app.component';
 import {TabsComponent} from './tabs/tabs.component';
 import {FormsModule} from "@angular/forms";
 import {ReviewsComponent} from './reviews/reviews.component';
-import {PizzaFileService} from "./pizza-file.service";
 
 @NgModule({
   declarations: [
@@ -17,7 +16,7 @@ import {PizzaFileService} from "./pizza-file.service";
     BrowserModule,
     FormsModule
   ],
-  providers: [PizzaFileService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
