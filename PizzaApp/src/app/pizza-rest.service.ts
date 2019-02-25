@@ -3,7 +3,9 @@ import {HttpClient} from "@angular/common/http";
 import {IPizza} from "./app.model";
 import {Observable} from "rxjs";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class PizzaRestService {
 
   private url: string = "http://pizza-store.herokuapp.com/api/pizzas";
