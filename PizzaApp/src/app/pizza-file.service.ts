@@ -2,7 +2,9 @@ import {Injectable} from '@angular/core';
 import {PIZZAS} from "./app.data";
 import {IPizza} from "./app.model";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class PizzaFileService {
 
   constructor() {
