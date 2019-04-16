@@ -11,16 +11,24 @@ import {ExtrasComponent} from './pizza/pizza-details/tabs/extras/extras.componen
 import {IngredientsComponent} from './pizza/pizza-details/tabs/ingredients/ingredients.component';
 import {PizzaListComponent} from './pizza/pizza-list/pizza-list.component';
 import {CommonsModule} from "./commons/commons.module";
-import {RouterModule} from "@angular/router";
+import {RouterModule, Routes} from "@angular/router";
 import {PizzaDetailsComponent} from './pizza/pizza-details/pizza-details.component';
+import {AuthServiceProvider} from "./auth/auth.service";
+import {CustomerComponent} from './customer/customer.component';
+import {CustomerGuard} from "./customer.guard";
 
-const PIZZA_ROUTES = [
+const PIZZA_ROUTES : Routes = [
   {
     path: 'pizzas',
     children: [
       {path: '', component: PizzaListComponent},
       {path: ':id', component: PizzaDetailsComponent}
     ]
+  },
+  {
+    path: 'customers',
+    component: CustomerComponent,
+    canActivate: [CustomerGuard]
   }
 ];
 
@@ -32,7 +40,8 @@ const PIZZA_ROUTES = [
     ExtrasComponent,
     IngredientsComponent,
     PizzaListComponent,
-    PizzaDetailsComponent
+    PizzaDetailsComponent,
+    CustomerComponent
   ],
   imports: [
     RouterModule.forRoot(PIZZA_ROUTES),
@@ -41,7 +50,7 @@ const PIZZA_ROUTES = [
     HttpClientModule,
     CommonsModule
   ],
-  providers: [PizzaServiceProvider],
+  providers: [PizzaServiceProvider, AuthServiceProvider, CustomerGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
