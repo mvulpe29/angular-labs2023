@@ -44,9 +44,16 @@ select {
 /*margin-left: 20px*/
 /*}*/
 
-.error{
+.error {
   font-size: .8rem;
-  color: #ee6e73!important;
+  color: #ee6e73 !important;
   position: relative;
   top: -20px;
+
+}
+
+.error > label {
+  color: #ee6e73 !important;
+  position: absolute;
+  top: 2px;
 }

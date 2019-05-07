@@ -1,7 +1,8 @@
 <div id="customer" *ngFor='let customer of customers' class="card">
   <div class="card-content" (click)="goToCustomer(customer)">
     <div class="content">
-      <span class="card-title"> {{customer.name}} </span>
+      <p class="card-title"> {{customer.firstName}}{{customer.lastName}} </p>
+      <span> {{customer.email}} </span>
     </div>
   </div>
 </div>

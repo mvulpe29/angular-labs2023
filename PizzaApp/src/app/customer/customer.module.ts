@@ -5,11 +5,13 @@ import {CustomerRoutingModule} from './customer-routing.module';
 import {CustomerListComponent} from './customer-list/customer-list.component';
 import {CustomerDetailsComponent} from './customer-details/customer-details.component';
 import {CustomerServiceProvider} from './customer.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    CustomerRoutingModule
+    CustomerRoutingModule,
+    FormsModule
   ],
   declarations: [
     CustomerListComponent, CustomerDetailsComponent
