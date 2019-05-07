@@ -1,14 +1,14 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {ICustomer} from '../customer.model';
-import {IOrderService, ORDER_SERVICE} from '../order.service';
-import {IPizzaOrder} from '../pizza-order.model';
-import {INavigationService, NAVIGATION_SERVICE} from '../../commons/navigation.service';
-import {ActivatedRoute} from '@angular/router';
-import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
-import {IOrder} from '../order.model';
-import {IPizza} from '../pizza.model';
-import {zip} from "rxjs";
-import {map} from "rxjs/operators";
+import { Component, Inject, OnInit } from '@angular/core';
+import { ICustomer } from '../customer.model';
+import { IOrderService, ORDER_SERVICE } from '../order.service';
+import { IPizzaOrder } from '../pizza-order.model';
+import { INavigationService, NAVIGATION_SERVICE } from '../../commons/navigation.service';
+import { ActivatedRoute } from '@angular/router';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { IOrder } from '../order.model';
+import { IPizza } from '../pizza.model';
+import { zip } from "rxjs";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: 'order-list',
@@ -27,14 +27,15 @@ export class OrderListComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private formBuilder: FormBuilder) {
     this.customerId = this.navigationService.getQueryParam(this.activatedRoute, 'customer');
-    this.orderForm = this.formBuilder.group({
+    this.orderForm = new FormGroup({
       customer: this.formBuilder.group({
         name: ['', Validators.required],
         phone: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
         address: ['', Validators.required],
       }),
-      pizzaOrders: [[], [Validators.required, this.priceValidation()]]
+
+      pizzaOrders: new FormControl([])
     });
   }
 

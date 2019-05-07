@@ -1,7 +1,16 @@
 <div>
   <h4>Add pizzas</h4>
-  <div *ngFor="let pizzaOrder of pizzaOrderOptions">
-    <span style="width: 100px; display: inline-block">{{pizzaOrder.pizza.name}}</span>
-    <input type="number" [(ngModel)]="pizzaOrder.quantity" (change)="onChange()" style="width:calc(100% - 105px)"/>
-  </div>
+  <form [formGroup]="form">
+
+    <div *ngFor="let pizzaOrder of form.controls, let i=index">
+      <ng-container [formGroupName]="i">
+        <span style="width: 100px; display: inline-block">{{pizzaOrder.get("pizza").value["name"]}}</span>
+        <input type="number" formControlName="quantity" style="width:calc(100% - 105px)"/>
+      </ng-container>
+    </div>
+  </form>
+
+
+  <div>Errors: {{control.errors | json}}</div>
+  <div>Valid: {{control?.valid }}</div>
 </div>

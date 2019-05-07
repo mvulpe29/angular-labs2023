@@ -21,7 +21,7 @@
     </ng-container>
 
     <pizza-selection [pizzaOrderOptions]="pizzasOrders" formControlName="pizzaOrders"></pizza-selection>
-    <p>price error: {{orderForm.get('pizzaOrderOptions')?.errors| json}}</p>
+    <p>price error: {{orderForm.get('pizzaOrders')?.errors| json}}</p>
 
     <div>
       Is valid: {{orderForm.valid}}
