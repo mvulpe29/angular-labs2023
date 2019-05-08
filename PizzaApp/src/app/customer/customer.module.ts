@@ -8,6 +8,7 @@ import { CustomerServiceProvider } from './customer.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomerEditComponent } from './customer-details/customer-edit/customer-edit.component';
 import { ForbiddenEmailValidatorDirective } from './forbidden-email-validator.directive';
+import { AddressComponent } from './address/address.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { ForbiddenEmailValidatorDirective } from './forbidden-email-validator.di
     ReactiveFormsModule
   ],
   declarations: [
-    CustomerListComponent, CustomerDetailsComponent, CustomerEditComponent, ForbiddenEmailValidatorDirective
+    CustomerListComponent, CustomerDetailsComponent, CustomerEditComponent, ForbiddenEmailValidatorDirective, AddressComponent
   ],
   providers: [CustomerServiceProvider],
 })

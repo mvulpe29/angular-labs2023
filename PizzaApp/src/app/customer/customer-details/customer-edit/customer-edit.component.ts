@@ -38,12 +38,7 @@ export class CustomerEditComponent implements OnInit {
       lastName: new FormControl("", [Validators.required]),
       email: this.emailFormControl,
       phone: new FormControl(""),
-      address: new FormGroup({
-        street: new FormControl(),
-        city: new FormControl(),
-        zipCode: new FormControl(),
-        country: new FormControl()
-      })
+      address: new FormControl()
     });
   }
 

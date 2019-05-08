@@ -47,26 +47,7 @@
 
       <h6>Address</h6>
 
-      <ng-container ngModelGroup="address">
-        <div class="row">
-          <div class="col s6">
-            <label>Street</label>
-            <input name="street" [ngModel]="customer.address.street"/>
-          </div>
-          <div class="col s6">
-            <label>City</label>
-            <input name="city" [ngModel]="customer.address.city"/>
-          </div>
-          <div class="col s6">
-            <label>Zip Code</label>
-            <input name="zipCode" [ngModel]="customer.address.zipCode"/>
-          </div>
-          <div class="col s6">
-            <label>Country</label>
-            <input name="country" [ngModel]="customer.address.country"/>
-          </div>
-        </div>
-      </ng-container>
+      <app-address name="address" [ngModel]="customer.address"></app-address>
 
       <div class="right-align">
         <button class="btn" type="submit" [disabled]="customerForm.invalid">Save</button>
