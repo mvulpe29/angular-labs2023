@@ -29,6 +29,9 @@
                *ngIf="emailFormControl.invalid && (emailFormControl.dirty || emailFormControl.touched)">
             <label *ngIf="emailFormControl.errors.required">Email required</label>
             <label *ngIf="emailFormControl.errors.email">Email not valid</label>
+            <label *ngIf="emailFormControl.errors.uniqueEmail">Email taken</label>
+            <label *ngIf="!emailFormControl.errors.email && emailFormControl.errors.forbiddenEmail">Email
+              forbidden</label>
           </div>
         </div>
 

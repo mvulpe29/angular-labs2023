@@ -1,6 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { ICustomer } from '../../customer.model';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  AsyncValidatorFn,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  Validators
+} from '@angular/forms';
+import { CustomerValidators } from '../../customer-validators';
+import { CUSTOMER_SERVICE, ICustomerService } from '../../customer.service';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-customer-edit',
@@ -11,8 +22,17 @@ export class CustomerEditComponent implements OnInit {
   public emailFormControl: FormControl;
   public customerFormGroup: FormGroup;
 
-  constructor() {
-    this.emailFormControl = new FormControl("", [Validators.required, Validators.email])
+  constructor(@Inject(CUSTOMER_SERVICE) private customerService: ICustomerService) {
+    this.emailFormControl = new FormControl("",
+      [
+        Validators.required,
+        Validators.email,
+        CustomerValidators.forbiddenEmailValidator("irian.ro")
+      ],
+      [
+        this.uniqueEmailValidator()
+      ]);
+
     this.customerFormGroup = new FormGroup({
       firstName: new FormControl("", [Validators.required]),
       lastName: new FormControl("", [Validators.required]),
@@ -47,5 +67,19 @@ export class CustomerEditComponent implements OnInit {
       ...this.customerFormGroup.value,
       _id: this.customer._id
     });
+  }
+
+  private uniqueEmailValidator(): AsyncValidatorFn {
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      if (control.value && this.customer.email !== control.value) {
+        return this.customerService.isEmailTaken(control.value).pipe(
+          map(isTaken => {
+            return isTaken ? {uniqueEmail: true} : null;
+          })
+        );
+      }
+
+      return of(null);
+    };
   }
 }

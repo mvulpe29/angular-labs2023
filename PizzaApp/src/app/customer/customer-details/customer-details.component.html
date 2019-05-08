@@ -1,7 +1,9 @@
 <a class="btn-flat" style="padding-left: 0" (click)="goBack()"><i class="material-icons left">keyboard_arrow_left</i>Back</a>
 
+<h4>Reactive forms</h4>
 <app-customer-edit [customer]="customer"></app-customer-edit>
 
+<h4>Template-driven forms</h4>
 <div class="card">
   <div class="card-content">
     <p class="card-title"></p>
@@ -27,11 +29,13 @@
 
         <div class="col s6">
           <label>Email</label>
-          <input type="email" name="email" [ngModel]="customer.email" #emailControl="ngModel" required email/>
+          <input type="email" name="email" [ngModel]="customer.email" #emailControl="ngModel"
+                 required email appForbiddenEmailValidator/>
 
           <div class="error" *ngIf="emailControl.invalid && (emailControl.dirty || emailControl.touched)">
             <label *ngIf="emailControl.errors.required">Email required</label>
             <label *ngIf="emailControl.errors.email">Email not valid</label>
+            <label *ngIf="!emailControl.errors.email && emailControl.errors.forbiddenEmail">Email forbidden</label>
           </div>
         </div>
 
