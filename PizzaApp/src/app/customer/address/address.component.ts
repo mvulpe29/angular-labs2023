@@ -29,12 +29,18 @@ export class AddressComponent implements OnInit, ControlValueAccessor {
       zipCode: new FormControl(),
       country: new FormControl()
     });
-
   }
 
-
   ngOnInit() {
-    this.controlDir.control.setValidators(this.aggregateErrorsFromAddressForm());
+    // adding validators
+    const newValidators = [this.aggregateErrorsFromAddressForm()];
+    const validators = this.controlDir.control.validator ?
+      [this.controlDir.control.validator, ...newValidators] :
+      newValidators;
+
+    this.controlDir.control.setValidators(validators);
+    this.controlDir.control.updateValueAndValidity();
+
     this.addressFormGroup.valueChanges.subscribe(address => {
       this._onChange(address);
     });
