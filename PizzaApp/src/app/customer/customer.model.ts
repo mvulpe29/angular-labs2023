@@ -1,6 +1,10 @@
+import { IAddress } from './address/address.model';
+
 export interface ICustomer {
   _id: string;
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  address: string;
+  phone: string;
+  address: IAddress;
 }

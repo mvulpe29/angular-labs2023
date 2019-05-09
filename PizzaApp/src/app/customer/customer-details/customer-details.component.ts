@@ -1,9 +1,10 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { Component, Inject, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import {ICustomer} from '../customer.model';
-import {CUSTOMER_SERVICE, ICustomerService} from '../customer.service';
-import {INavigationService, NAVIGATION_SERVICE} from '../../commons/navigation.service';
+import { ICustomer } from '../customer.model';
+import { CUSTOMER_SERVICE, ICustomerService } from '../customer.service';
+import { INavigationService, NAVIGATION_SERVICE } from '../../commons/navigation.service';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-customer-details',
@@ -12,7 +13,7 @@ import {INavigationService, NAVIGATION_SERVICE} from '../../commons/navigation.s
 })
 export class CustomerDetailsComponent implements OnInit {
 
-  private customer: ICustomer;
+  public customer: ICustomer;
 
   constructor(@Inject(CUSTOMER_SERVICE) private customerService: ICustomerService,
               @Inject(NAVIGATION_SERVICE) private navigationService: INavigationService,
@@ -26,5 +27,12 @@ export class CustomerDetailsComponent implements OnInit {
 
   goBack() {
     return this.navigationService.openCustomers();
+  }
+
+  onSubmit(customerFormGroup: FormGroup) {
+    console.log({
+      ...customerFormGroup.value,
+      _id: this.customer._id
+    });
   }
 }

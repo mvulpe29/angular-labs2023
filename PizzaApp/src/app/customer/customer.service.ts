@@ -1,13 +1,15 @@
-import {Injectable, InjectionToken, Provider} from '@angular/core';
+import { Injectable, InjectionToken, Provider } from '@angular/core';
 
-import {ICustomer} from './customer.model';
-import {CUSTOMERS} from './customer.data';
-import {Observable} from "rxjs";
+import { ICustomer } from './customer.model';
+import { CUSTOMERS } from './customer.data';
+import { Observable, of } from "rxjs";
 
 export interface ICustomerService {
   getCustomers(): Observable<Array<ICustomer>>;
 
   getCustomer(id: string): Observable<ICustomer>;
+
+  isEmailTaken(email: string): Observable<boolean>;
 }
 
 @Injectable()
@@ -24,6 +26,12 @@ export class CustomerFileService implements ICustomerService {
       observer.next(CUSTOMERS.find(customer => customer._id === id));
       observer.complete();
     });
+  }
+
+  isEmailTaken(email: string): Observable<boolean> {
+    const isTaken = CUSTOMERS.findIndex(customer => customer.email === email) >= 0;
+    console.log(isTaken);
+    return of(isTaken);
   }
 }
 

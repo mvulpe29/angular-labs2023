@@ -1,0 +1,75 @@
+<div class="card">
+  <div class="card-content">
+    <form [formGroup]="customerFormGroup" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col s6">
+          <label>First name</label>
+          <input formControlName="firstName"/>
+          <div class="error"
+               *ngIf="customerFormGroup.get('firstName').invalid && (customerFormGroup.get('firstName').dirty || customerFormGroup.get('firstName').touched)">
+            <label *ngIf="customerFormGroup.get('firstName').errors.required">First name required</label>
+          </div>
+        </div>
+
+        <div class="col s6">
+          <label>Last name</label>
+          <input formControlName="lastName"/>
+
+          <div class="error"
+               *ngIf="customerFormGroup.get('lastName').invalid && (customerFormGroup.get('lastName').dirty || customerFormGroup.get('lastName').touched)">
+            <label *ngIf="customerFormGroup.get('lastName').errors.required">Last name required</label>
+          </div>
+        </div>
+
+        <div class="col s6">
+          <label>Email</label>
+          <input type="email" [formControl]="emailFormControl"/>
+
+          <div class="error"
+               *ngIf="emailFormControl.invalid && (emailFormControl.dirty || emailFormControl.touched)">
+            <label *ngIf="emailFormControl.errors.required">Email required</label>
+            <label *ngIf="emailFormControl.errors.email">Email not valid</label>
+            <label *ngIf="emailFormControl.errors.uniqueEmail">Email taken</label>
+            <label *ngIf="!emailFormControl.errors.email && emailFormControl.errors.forbiddenEmail">Email
+              forbidden</label>
+          </div>
+        </div>
+
+        <div class="col s6">
+          <label>Phone</label>
+          <input formControlName="phone"/>
+        </div>
+      </div>
+
+      <h6>Address</h6>
+
+      <app-address formControlName="address"></app-address>
+
+      <div class="col s12">
+        <p>Address errors</p>
+        <code>
+          <pre>{{customerFormGroup.get("address").errors | json}}</pre>
+        </code>
+      </div>
+      <div class="right-align">
+        <button class="btn" type="submit" [disabled]="customerFormGroup.invalid">Save</button>
+      </div>
+    </form>
+
+    <div class="row">
+      <div class="col s6">
+        <p>Initial value</p>
+        <code>
+          <pre>{{customer | json}}</pre>
+        </code>
+      </div>
+      <div class="col s6">
+        <p>Form value</p>
+        <code>
+          <pre>{{customerFormGroup.value | json}}</pre>
+        </code>
+      </div>
+    </div>
+
+  </div>
+</div>
