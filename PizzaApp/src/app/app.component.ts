@@ -1,5 +1,5 @@
-import {Component} from "@angular/core";
-import {IPizza} from "./app.model";
+import {Component} from '@angular/core';
+import {IPizza} from './app.model';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import {IPizza} from "./app.model";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private pizza: IPizza;
+  pizza: IPizza;
 
   constructor() {
     this.pizza = {
@@ -15,6 +15,6 @@ export class AppComponent {
       price: 27.5,
       weight: 550,
       ingredients: 'sos rosii, mozzarella, ciuperci, salam, sunca presata, oregano, anghinare'
-    }
+    };
   }
 }
