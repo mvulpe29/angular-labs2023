@@ -1,6 +1,6 @@
-import {Component} from "@angular/core";
-import {IPizza} from "./app.model";
-import {PIZZAS} from "./app.data";
+import {Component} from '@angular/core';
+import {IPizza} from './app.model';
+import {PIZZAS} from './app.data';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import {PIZZAS} from "./app.data";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private pizzas: Array<IPizza>;
+  pizzas: Array<IPizza>;
 
   constructor() {
     this.pizzas = PIZZAS;
