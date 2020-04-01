@@ -7,7 +7,7 @@ import {IPizza} from "./app.model";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private pizza: IPizza;
+  pizza: IPizza;
 
   constructor() {
     this.pizza = {
