@@ -8,7 +8,7 @@ import {PIZZAS} from "./app.data";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private pizzas: Array<IPizza>;
+  pizzas: Array<IPizza>;
 
   constructor() {
     this.pizzas = PIZZAS;
