@@ -8,7 +8,7 @@ import {PizzaRestService} from "./pizza-rest.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private pizzas: Array<IPizza>;
+  pizzas: Array<IPizza>;
 
   constructor(private pizzaService: PizzaRestService) {
     this.pizzaService.getPizzas()
