@@ -8,8 +8,8 @@ import {IReview} from "../app.model";
 })
 export class ReviewsComponent implements OnInit {
   @Input()
-  private reviews: Array<IReview>;
-  private newReview: IReview;
+  reviews: Array<IReview>;
+  newReview: IReview;
 
   constructor() {
     this.newReview = {};
