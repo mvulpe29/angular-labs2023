@@ -9,8 +9,8 @@ import {IPizzaService, PIZZA_SERVICE} from "../../pizza.service";
 })
 export class ReviewsComponent implements OnInit {
   @Input()
-  private pizza: IPizza;
-  private newReview: IReview;
+  pizza: IPizza;
+  newReview: IReview;
 
   constructor(@Inject(PIZZA_SERVICE) private pizzaService: IPizzaService) {
     this.newReview = {};
