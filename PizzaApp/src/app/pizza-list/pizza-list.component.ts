@@ -8,7 +8,7 @@ import {IPizza} from "./pizza.model";
   styleUrls: ['./pizza-list.component.css']
 })
 export class PizzaListComponent implements OnInit {
-  private pizzas: Array<IPizza>;
+  pizzas: Array<IPizza>;
 
   constructor(@Inject(PIZZA_SERVICE) private pizzaService: IPizzaService) {
     this.pizzaService.getPizzas()
