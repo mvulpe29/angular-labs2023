@@ -10,7 +10,7 @@ import {INavigationService, NAVIGATION_SERVICE} from "../../commons/navigation.s
   styleUrls: ['./pizza-details.component.css']
 })
 export class PizzaDetailsComponent implements OnInit {
-  private pizza: IPizza;
+  pizza: IPizza;
 
   constructor(@Inject(PIZZA_SERVICE)
               private pizzaService: IPizzaService,
