@@ -11,7 +11,7 @@ import {INavigationService, NAVIGATION_SERVICE} from '../../commons/navigation.s
 })
 export class CustomerListComponent implements OnInit {
 
-  private customers: Array<ICustomer>;
+  customers: Array<ICustomer>;
 
   constructor(@Inject(CUSTOMER_SERVICE) private customerService: ICustomerService,
               @Inject(NAVIGATION_SERVICE) private navigationService: INavigationService) {
