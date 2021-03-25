@@ -1,4 +1,4 @@
-## Angular 9.0 tutorial by irian
+## Angular 11.0 tutorial by irian
 
 ### Tools
 * node: https://nodejs.org/en/download/
