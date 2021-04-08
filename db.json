@@ -1,0 +1,50 @@
+[
+  {
+    "canPurchase": true,
+    "id": 0,
+    "image": "assets/images/quattro.png",
+    "ingredients": "sos rosii, mozzarella, ciuperci, salam, sunca presata, oregano, anghinare",
+    "name": "4 STAGIONI",
+    "price": 27.5,
+    "reviews": [
+      {
+        "author": "joe@example.org",
+        "body": "I love this pizza!",
+        "createdOn": 1397490980837,
+        "stars": 5
+      },
+      {
+        "author": "tim@example.org",
+        "body": "This pizza sucks.",
+        "createdOn": 1397490980837,
+        "stars": 1
+      }
+    ],
+    "soldOut": false,
+    "weight": 550
+  },
+  {
+    "canPurchase": false,
+    "id": 1,
+    "image": "assets/images/pepperoni.png",
+    "ingredients": "sos rosii, mozzarella, salam picant, oregano",
+    "name": "DIAVOLA",
+    "price": 25,
+    "reviews": [
+      {
+        "author": "JimmyDean@example.org",
+        "body": "I think this pizza was just OK, could honestly be more spicy, IMO.",
+        "createdOn": 1397490980837,
+        "stars": 3
+      },
+      {
+        "author": "gemsRock@example.org",
+        "body": "Any pizza with chilly is for me!",
+        "createdOn": 1397490980837,
+        "stars": 4
+      }
+    ],
+    "soldOut": false,
+    "weight": 450
+  }
+]
