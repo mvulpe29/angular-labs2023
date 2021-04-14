@@ -11,10 +11,7 @@ export class PizzaFileService implements IPizzaService {
   }
 
   getPizzas(): Observable<Array<IPizza>> {
-    return Observable.create(observer => {
-      observer.next(PIZZAS);
-      observer.complete();
-    });
+    return of(PIZZAS);
   }
 
   addReview(pizza: IPizza, review: IReview): Observable<IPizza> {
