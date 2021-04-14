@@ -8,6 +8,7 @@ import {Observable} from "rxjs";
 export class PizzaRestService implements IPizzaService {
 
   private url: string = "https://angular-labs2021-59f10-default-rtdb.firebaseio.com/pizzas.json";
+  private reviewUrl: string = "https://us-central1-angular-labs2021-59f10.cloudfunctions.net/app";
 
   constructor(private http: HttpClient) {
   }
@@ -21,8 +22,8 @@ export class PizzaRestService implements IPizzaService {
   }
 
   addReview(pizza: IPizza, review: IReview): Observable<IPizza> {
-    const url: string = this.url + '/addReview/' + pizza._id;
-    return this.http.put<IPizza>(url, review);
+    const url: string = this.reviewUrl + '/review/' + pizza.id;
+    return this.http.post<IPizza>(url, review);
   }
 
 }
