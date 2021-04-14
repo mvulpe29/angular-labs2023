@@ -18,35 +18,35 @@ select {
   outline: none !important;
 }
 
-/*select {*/
-/*display: block;*/
-/*-webkit-appearance: none;*/
-/*border-radius: 0;*/
-/*outline: none !important;*/
-/*border-width: 0;*/
-/*border-bottom-width: 1px;*/
-/*background-size: 8px;*/
-/*background-position-y: 50%;*/
-/*background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right transparent;*/
-/*margin-bottom: 20px;*/
-/*}*/
+select {
+  display: block;
+  -webkit-appearance: none;
+  border-radius: 0;
+  outline: none !important;
+  border-width: 0;
+  border-bottom-width: 1px;
+  background-size: 8px;
+  background-position-y: 50%;
+  background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right transparent;
+  margin-bottom: 20px;
+}
 
-/*.ng-valid[required]{*/
-/*box-shadow: -15px 0 0 0 white, -20px 0 0 0 #26a69a !important*/
-/*}*/
+.ng-valid[required] {
+  box-shadow: -15px 0 0 0 white, -20px 0 0 0 #26a69a !important
+}
 
-/*.ng-invalid {*/
-/*box-shadow: -15px 0 0 0 white, -20px 0 0 0 #ee6e73 !important*/
-/*}*/
+.ng-invalid {
+  box-shadow: -15px 0 0 0 white, -20px 0 0 0 #ee6e73 !important
+}
 
-/*form {*/
-/*padding-left: 20px;*/
-/*margin-left: 20px*/
-/*}*/
+form {
+  padding-left: 20px;
+  margin-left: 20px
+}
 
-.error{
+.error {
   font-size: .8rem;
-  color: #ee6e73!important;
+  color: #ee6e73 !important;
   position: relative;
   top: -20px;
 }
