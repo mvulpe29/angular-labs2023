@@ -21,7 +21,7 @@ export class PizzaListComponent implements OnInit {
   }
 
   goToPizza(pizza: IPizza): Promise<boolean> {
-    return this.navigationService.openPizza(pizza._id);
+    return this.navigationService.openPizza(pizza.id);
   }
 
 }
