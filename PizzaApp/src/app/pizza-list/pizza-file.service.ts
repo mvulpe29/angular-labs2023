@@ -2,7 +2,7 @@ import {Injectable, Provider} from '@angular/core';
 import {PIZZAS} from "./pizza.data";
 import {IPizza} from "./pizza.model";
 import {IPizzaService, PIZZA_SERVICE} from "./pizza.service";
-import {Observable} from "rxjs";
+import {Observable, of} from "rxjs";
 
 @Injectable()
 export class PizzaFileService implements IPizzaService {
@@ -11,10 +11,7 @@ export class PizzaFileService implements IPizzaService {
   }
 
   getPizzas(): Observable<Array<IPizza>> {
-    return Observable.create(observer => {
-      observer.next(PIZZAS);
-      observer.complete();
-    });
+    return of(PIZZAS);
   }
 }
 
