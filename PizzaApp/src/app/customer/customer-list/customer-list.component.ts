@@ -10,8 +10,8 @@ import {INavigationService, NAVIGATION_SERVICE} from '../../commons/navigation.s
   styleUrls: ['./customer-list.component.css']
 })
 export class CustomerListComponent implements OnInit {
-
-  customers: Array<ICustomer>;
+  displayedColumns: string[] = ['firstName', 'lastName', 'email', 'phone', 'city', 'country', 'actions'];
+  dataSource: Array<ICustomer>;
 
   constructor(@Inject(CUSTOMER_SERVICE) private customerService: ICustomerService,
               @Inject(NAVIGATION_SERVICE) private navigationService: INavigationService) {
@@ -19,7 +19,7 @@ export class CustomerListComponent implements OnInit {
 
   ngOnInit() {
     this.customerService.getCustomers()
-      .subscribe(customers => this.customers = customers);
+      .subscribe(customers => this.dataSource = customers);
   }
 
   goToCustomer(customer: ICustomer): Promise<boolean> {

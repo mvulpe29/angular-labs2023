@@ -8,14 +8,20 @@ import { CustomerServiceProvider } from './customer.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomerEditComponent } from './customer-details/customer-edit/customer-edit.component';
 import { ForbiddenEmailValidatorDirective } from './forbidden-email-validator.directive';
+import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    CustomerRoutingModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        CommonModule,
+        CustomerRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatTableModule,
+        MatButtonModule,
+        MatIconModule
+    ],
   declarations: [
     CustomerListComponent, CustomerDetailsComponent, CustomerEditComponent, ForbiddenEmailValidatorDirective
   ],
