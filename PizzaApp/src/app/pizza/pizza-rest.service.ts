@@ -7,7 +7,7 @@ import {Observable} from "rxjs";
 @Injectable()
 export class PizzaRestService implements IPizzaService {
 
-  private url: string = "https://angular-labs2021-59f10-default-rtdb.firebaseio.com/pizzas.json";
+  private url: string = "https://angular-labs2021-59f10-default-rtdb.firebaseio.com/pizzas";
   private reviewUrl: string = "https://us-central1-angular-labs2021-59f10.cloudfunctions.net/app";
 
   constructor(private http: HttpClient) {
