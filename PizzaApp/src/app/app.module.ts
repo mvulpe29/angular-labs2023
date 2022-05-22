@@ -6,6 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {CommonsModule} from './commons/commons.module';
 import {AppRoutingModule} from './app-routing.module';
 import {PreloadSelectedModulesService} from './preload-selected-modules.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {PreloadSelectedModulesService} from './preload-selected-modules.service'
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    CommonsModule
+    CommonsModule,
+    BrowserAnimationsModule
   ],
   bootstrap: [AppComponent],
   providers: [PreloadSelectedModulesService]
