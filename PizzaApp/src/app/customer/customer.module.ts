@@ -11,6 +11,10 @@ import { ForbiddenEmailValidatorDirective } from './forbidden-email-validator.di
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
     imports: [
@@ -20,7 +24,11 @@ import {MatIconModule} from '@angular/material/icon';
         ReactiveFormsModule,
         MatTableModule,
         MatButtonModule,
-        MatIconModule
+        MatIconModule,
+        MatSortModule,
+        MatPaginatorModule,
+        MatFormFieldModule,
+        MatInputModule
     ],
   declarations: [
     CustomerListComponent, CustomerDetailsComponent, CustomerEditComponent, ForbiddenEmailValidatorDirective
