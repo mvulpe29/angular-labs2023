@@ -16,6 +16,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
     imports: [
@@ -30,7 +31,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
         MatPaginatorModule,
         MatFormFieldModule,
         MatInputModule,
-        MatAutocompleteModule
+        MatAutocompleteModule,
+        MatSelectModule
     ],
   declarations: [
     CustomerListComponent, CustomerDetailsComponent, CustomerEditComponent, ForbiddenEmailValidatorDirective

@@ -80,10 +80,14 @@
                         </mat-form-field>
                     </div>
                     <div class="col-12 col-md-3">
-                        <mat-form-field>
-                            <mat-label>Country</mat-label>
-                            <input matInput formControlName="country"/>
-                        </mat-form-field>
+<mat-form-field>
+    <mat-label>Country</mat-label>
+    <mat-select formControlName="country">
+        <mat-option *ngFor="let country of countries" [value]="country.code">
+            {{country.name}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
                     </div>
                 </div>
             </ng-container>

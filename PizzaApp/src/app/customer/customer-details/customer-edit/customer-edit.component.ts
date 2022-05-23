@@ -6,6 +6,7 @@ import {CUSTOMER_SERVICE, ICustomerService} from '../../customer.service';
 import {Observable, of} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {CITIES} from './cities.data';
+import {COUNTRIES} from './countries.data';
 
 @Component({
     selector: 'app-customer-edit',
@@ -16,6 +17,7 @@ export class CustomerEditComponent implements OnInit {
     public emailFormControl: FormControl;
     public customerFormGroup: FormGroup;
     public filteredCities$: Observable<string[]>;
+    public countries = COUNTRIES
     private readonly cityFormControl: FormControl;
 
     constructor(@Inject(CUSTOMER_SERVICE) private customerService: ICustomerService) {
