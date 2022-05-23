@@ -2,7 +2,7 @@
     <div class="card-content">
         <form [formGroup]="customerFormGroup" (ngSubmit)="onSubmit()">
             <div class="row">
-                <div class="col s6">
+                <div class="col-12 col-md-3">
                     <label>First name</label>
                     <input formControlName="firstName"/>
                     <div class="error"
@@ -11,7 +11,7 @@
                     </div>
                 </div>
 
-                <div class="col s6">
+                <div class="col-12 col-md-3">
                     <label>Last name</label>
                     <input formControlName="lastName"/>
 
@@ -21,7 +21,7 @@
                     </div>
                 </div>
 
-                <div class="col s6">
+                <div class="col-12 col-md-3">
                     <label>Email</label>
                     <input type="email" [formControl]="emailFormControl"/>
 
@@ -35,7 +35,7 @@
                     </div>
                 </div>
 
-                <div class="col s6">
+                <div class="col-12 col-md-3">
                     <label>Phone</label>
                     <input formControlName="phone"/>
                 </div>
@@ -45,38 +45,38 @@
 
             <ng-container formGroupName="address">
                 <div class="row">
-                    <div class="col s6">
+                    <div class="col-12 col-md-3">
                         <label>Street</label>
                         <input formControlName="street"/>
                     </div>
-                    <div class="col s6">
+                    <div class="col-12 col-md-3">
                         <label>City</label>
                         <input formControlName="city"/>
                     </div>
-                    <div class="col s6">
+                    <div class="col-12 col-md-3">
                         <label>Zip Code</label>
                         <input formControlName="zipCode"/>
                     </div>
-                    <div class="col s6">
+                    <div class="col-12 col-md-3">
                         <label>Country</label>
                         <input formControlName="country"/>
                     </div>
                 </div>
             </ng-container>
 
-            <div class="right-align">
+            <div class="d-flex justify-content-end">
                 <button class="btn" type="submit" [disabled]="customerFormGroup.invalid">Save</button>
             </div>
         </form>
 
         <div class="row">
-            <div class="col s6">
+            <div class="col-12 col-md-6">
                 <p>Initial value</p>
                 <code>
                     <pre>{{customer | json}}</pre>
                 </code>
             </div>
-            <div class="col s6">
+            <div class="col-12 col-md-6">
                 <p>Form value</p>
                 <code>
                     <pre>{{customerFormGroup.value | json}}</pre>
