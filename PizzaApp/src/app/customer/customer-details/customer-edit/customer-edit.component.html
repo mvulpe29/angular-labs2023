@@ -3,41 +3,49 @@
         <form [formGroup]="customerFormGroup" (ngSubmit)="onSubmit()">
             <div class="row">
                 <div class="col s6">
-                    <label>First name</label>
-                    <input formControlName="firstName"/>
-                    <div class="error"
-                         *ngIf="customerFormGroup.get('firstName').invalid && (customerFormGroup.get('firstName').dirty || customerFormGroup.get('firstName').touched)">
-                        <label *ngIf="customerFormGroup.get('firstName').errors.required">First name required</label>
-                    </div>
+                    <mat-form-field>
+                        <mat-label>First name</mat-label>
+                        <input matInput formControlName="firstName"/>
+                        <mat-error
+                                *ngIf="customerFormGroup.get('firstName').invalid && (customerFormGroup.get('firstName').dirty || customerFormGroup.get('firstName').touched)">
+                            <span *ngIf="customerFormGroup.get('firstName').errors.required">First name required</span>
+                        </mat-error>
+                    </mat-form-field>
                 </div>
 
                 <div class="col s6">
-                    <label>Last name</label>
-                    <input formControlName="lastName"/>
+                    <mat-form-field>
+                        <mat-label>Last name</mat-label>
+                        <input matInput formControlName="lastName"/>
+                        <mat-error
+                                *ngIf="customerFormGroup.get('lastName').invalid && (customerFormGroup.get('lastName').dirty || customerFormGroup.get('lastName').touched)">
+                            <span *ngIf="customerFormGroup.get('lastName').errors.required">Last name required</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
 
-                    <div class="error"
-                         *ngIf="customerFormGroup.get('lastName').invalid && (customerFormGroup.get('lastName').dirty || customerFormGroup.get('lastName').touched)">
-                        <label *ngIf="customerFormGroup.get('lastName').errors.required">Last name required</label>
-                    </div>
+
+                <div class="col s6">
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" [formControl]="emailFormControl"/>
+
+                        <mat-error
+                                *ngIf="emailFormControl.invalid && (emailFormControl.dirty || emailFormControl.touched)">
+                            <span *ngIf="emailFormControl.errors.required">Email required</span>
+                            <span *ngIf="emailFormControl.errors.email">Email not valid</span>
+                            <span *ngIf="emailFormControl.errors.uniqueEmail">Email taken</span>
+                            <span *ngIf="!emailFormControl.errors.email && emailFormControl.errors.forbiddenEmail">Email
+                                forbidden</span>
+                        </mat-error>
+                    </mat-form-field>
                 </div>
 
                 <div class="col s6">
-                    <label>Email</label>
-                    <input type="email" [formControl]="emailFormControl"/>
-
-                    <div class="error"
-                         *ngIf="emailFormControl.invalid && (emailFormControl.dirty || emailFormControl.touched)">
-                        <label *ngIf="emailFormControl.errors.required">Email required</label>
-                        <label *ngIf="emailFormControl.errors.email">Email not valid</label>
-                        <label *ngIf="emailFormControl.errors.uniqueEmail">Email taken</label>
-                        <label *ngIf="!emailFormControl.errors.email && emailFormControl.errors.forbiddenEmail">Email
-                            forbidden</label>
-                    </div>
-                </div>
-
-                <div class="col s6">
-                    <label>Phone</label>
-                    <input formControlName="phone"/>
+                    <mat-form-field>
+                        <mat-label>Phone</mat-label>
+                        <input matInput formControlName="phone"/>
+                    </mat-form-field>
                 </div>
             </div>
 
@@ -46,26 +54,47 @@
             <ng-container formGroupName="address">
                 <div class="row">
                     <div class="col s6">
-                        <label>Street</label>
-                        <input formControlName="street"/>
+                        <mat-form-field>
+                            <mat-label>Street</mat-label>
+                            <input matInput formControlName="street"/>
+                        </mat-form-field>
                     </div>
                     <div class="col s6">
-                        <label>City</label>
-                        <input formControlName="city"/>
+                        <mat-form-field>
+                            <mat-label>City</mat-label>
+                            <input matInput
+                                   formControlName="city"
+                                   type="text"
+                                   [matAutocomplete]="cityAutocomplete"/>
+                            <mat-autocomplete autoActiveFirstOption #cityAutocomplete="matAutocomplete">
+                                <mat-option *ngFor="let option of filteredCities | async" [value]="option">
+                                    {{option}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
                     </div>
                     <div class="col s6">
-                        <label>Zip Code</label>
-                        <input formControlName="zipCode"/>
+                        <mat-form-field>
+                            <mat-label>Zip Code</mat-label>
+                            <input matInput formControlName="zipCode"/>
+                        </mat-form-field>
                     </div>
                     <div class="col s6">
-                        <label>Country</label>
-                        <input formControlName="country"/>
+                        <mat-form-field>
+                            <mat-label>Country</mat-label>
+                            <input matInput formControlName="country"/>
+                        </mat-form-field>
                     </div>
                 </div>
             </ng-container>
 
             <div class="right-align">
-                <button class="btn" type="submit" [disabled]="customerFormGroup.invalid">Save</button>
+                <button mat-raised-button
+                        color="primary"
+                        type="submit"
+                        [disabled]="customerFormGroup.invalid">
+                    Save
+                </button>
             </div>
         </form>
 

@@ -1,85 +1,91 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
-import { ICustomer } from '../../customer.model';
-import {
-  AbstractControl,
-  AsyncValidatorFn,
-  FormControl,
-  FormGroup,
-  ValidationErrors,
-  Validators
-} from '@angular/forms';
-import { CustomerValidators } from '../../customer-validators';
-import { CUSTOMER_SERVICE, ICustomerService } from '../../customer.service';
-import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {Component, Inject, Input, OnInit} from '@angular/core';
+import {ICustomer} from '../../customer.model';
+import {AbstractControl, AsyncValidatorFn, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {CustomerValidators} from '../../customer-validators';
+import {CUSTOMER_SERVICE, ICustomerService} from '../../customer.service';
+import {Observable, of} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+import {CITIES} from './cities.data';
 
 @Component({
-  selector: 'app-customer-edit',
-  templateUrl: './customer-edit.component.html',
-  styleUrls: ['./customer-edit.component.css']
+    selector: 'app-customer-edit',
+    templateUrl: './customer-edit.component.html',
+    styleUrls: ['./customer-edit.component.css']
 })
 export class CustomerEditComponent implements OnInit {
-  public emailFormControl: FormControl;
-  public customerFormGroup: FormGroup;
+    public emailFormControl: FormControl;
+    public customerFormGroup: FormGroup;
+    public filteredCities: Observable<string[]>;
+    private readonly cityFormControl: FormControl;
 
-  constructor(@Inject(CUSTOMER_SERVICE) private customerService: ICustomerService) {
-    this.emailFormControl = new FormControl("",
-      [
-        Validators.required,
-        Validators.email,
-        CustomerValidators.forbiddenEmailValidator("irian.ro")
-      ],
-      [
-        this.uniqueEmailValidator()
-      ]);
+    constructor(@Inject(CUSTOMER_SERVICE) private customerService: ICustomerService) {
 
-    this.customerFormGroup = new FormGroup({
-      firstName: new FormControl("", [Validators.required]),
-      lastName: new FormControl("", [Validators.required]),
-      email: this.emailFormControl,
-      phone: new FormControl(""),
-      address: new FormGroup({
-        street: new FormControl(),
-        city: new FormControl(),
-        zipCode: new FormControl(),
-        country: new FormControl()
-      })
-    });
-  }
+        this.emailFormControl = new FormControl("",
+            [
+                Validators.required,
+                Validators.email,
+                CustomerValidators.forbiddenEmailValidator("irian.ro")
+            ],
+            [
+                this.uniqueEmailValidator()
+            ]);
 
-  private _customer: ICustomer;
+        this.cityFormControl = new FormControl()
 
-  get customer(): ICustomer {
-    return this._customer;
-  }
+        this.customerFormGroup = new FormGroup({
+            firstName: new FormControl("", [Validators.required]),
+            lastName: new FormControl("", [Validators.required]),
+            email: this.emailFormControl,
+            phone: new FormControl(""),
+            address: new FormGroup({
+                street: new FormControl(),
+                city: this.cityFormControl,
+                zipCode: new FormControl(),
+                country: new FormControl()
+            })
+        });
+    }
 
-  @Input()
-  set customer(customer: ICustomer) {
-    this._customer = customer;
-    this.customerFormGroup.patchValue(customer);
-  }
+    private _customer: ICustomer;
 
-  ngOnInit() {
-  }
+    get customer(): ICustomer {
+        return this._customer;
+    }
 
-  onSubmit() {
-    console.log({
-      ...this.customerFormGroup.value,
-      _id: this.customer._id
-    });
-  }
+    @Input()
+    set customer(customer: ICustomer) {
+        this._customer = customer;
+        this.customerFormGroup.patchValue(customer);
+    }
 
-  private uniqueEmailValidator(): AsyncValidatorFn {
-    return (control: AbstractControl): Observable<ValidationErrors | null> => {
-      if (control.value && this.customer.email !== control.value) {
-        return this.customerService.isEmailTaken(control.value).pipe(
-          map(isTaken => {
-            return isTaken ? {uniqueEmail: true} : null;
-          })
+    ngOnInit() {
+        this.filteredCities = this.cityFormControl.valueChanges.pipe(
+            startWith(''),
+            map(value => {
+                const filterValue = value.toLowerCase();
+                return CITIES.filter(option => option.toLowerCase().includes(filterValue));
+            }),
         );
-      }
+    }
+    
+    onSubmit() {
+        console.log({
+            ...this.customerFormGroup.value,
+            _id: this.customer._id
+        });
+    }
 
-      return of(null);
-    };
-  }
+    private uniqueEmailValidator(): AsyncValidatorFn {
+        return (control: AbstractControl): Observable<ValidationErrors | null> => {
+            if (control.value && this.customer.email !== control.value) {
+                return this.customerService.isEmailTaken(control.value).pipe(
+                    map(isTaken => {
+                        return isTaken ? {uniqueEmail: true} : null;
+                    })
+                );
+            }
+
+            return of(null);
+        };
+    }
 }
