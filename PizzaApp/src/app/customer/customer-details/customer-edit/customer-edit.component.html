@@ -2,7 +2,7 @@
     <div class="card-content">
         <form [formGroup]="customerFormGroup" (ngSubmit)="onSubmit()">
             <div class="row">
-                <div class="col s6">
+                <div class="col-12 col-md-3">
                     <mat-form-field>
                         <mat-label>First name</mat-label>
                         <input matInput formControlName="firstName"/>
@@ -13,7 +13,7 @@
                     </mat-form-field>
                 </div>
 
-                <div class="col s6">
+                <div class="col-12 col-md-3">
                     <mat-form-field>
                         <mat-label>Last name</mat-label>
                         <input matInput formControlName="lastName"/>
@@ -25,7 +25,7 @@
                 </div>
 
 
-                <div class="col s6">
+                <div class="col-12 col-md-3">
                     <mat-form-field>
                         <mat-label>Email</mat-label>
                         <input matInput type="email" [formControl]="emailFormControl"/>
@@ -41,7 +41,7 @@
                     </mat-form-field>
                 </div>
 
-                <div class="col s6">
+                <div class="col-12 col-md-3">
                     <mat-form-field>
                         <mat-label>Phone</mat-label>
                         <input matInput formControlName="phone"/>
@@ -53,13 +53,13 @@
 
             <ng-container formGroupName="address">
                 <div class="row">
-                    <div class="col s6">
+                    <div class="col-12 col-md-3">
                         <mat-form-field>
                             <mat-label>Street</mat-label>
                             <input matInput formControlName="street"/>
                         </mat-form-field>
                     </div>
-                    <div class="col s6">
+                    <div class="col-12 col-md-3">
                         <mat-form-field>
                             <mat-label>City</mat-label>
                             <input matInput
@@ -73,13 +73,13 @@
                             </mat-autocomplete>
                         </mat-form-field>
                     </div>
-                    <div class="col s6">
+                    <div class="col-12 col-md-3">
                         <mat-form-field>
                             <mat-label>Zip Code</mat-label>
                             <input matInput formControlName="zipCode"/>
                         </mat-form-field>
                     </div>
-                    <div class="col s6">
+                    <div class="col-12 col-md-3">
                         <mat-form-field>
                             <mat-label>Country</mat-label>
                             <input matInput formControlName="country"/>
@@ -88,7 +88,7 @@
                 </div>
             </ng-container>
 
-            <div class="right-align">
+            <div class="d-flex justify-content-end">
                 <button mat-raised-button
                         color="primary"
                         type="submit"
@@ -99,13 +99,13 @@
         </form>
 
         <div class="row">
-            <div class="col s6">
+            <div class="col-12 col-md-6">
                 <p>Initial value</p>
                 <code>
                     <pre>{{customer | json}}</pre>
                 </code>
             </div>
-            <div class="col s6">
+            <div class="col-12 col-md-6">
                 <p>Form value</p>
                 <code>
                     <pre>{{customerFormGroup.value | json}}</pre>
