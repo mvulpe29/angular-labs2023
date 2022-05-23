@@ -1,16 +1,15 @@
-<nav>
-  <div class="nav-wrapper red darken-2 row">
-    <div class="col s12">
-      <a href="#" class="brand-logo "><i class="large material-icons">local_pizza</i>Pizza is life</a>
-      <ul id="nav-mobile" class="right">
-        <li><a (click)="goToPizzas()">Pizzas</a></li>
-        <li><a (click)="goToCustomers()">Customers</a></li>
-      </ul>
+<mat-toolbar color="primary" class="d-flex justify-content-between">
+    <a mat-button href="#" class="brand-logo ">
+        <i class="large material-icons">local_pizza</i>
+        Pizza is life
+    </a>
+    <div>
+        <a mat-button (click)="goToPizzas()" class="mx-1">Pizzas</a>
+        <a mat-button (click)="goToCustomers()" class="mx-1">Customers</a>
     </div>
-  </div>
-</nav>
+</mat-toolbar>
 
 <div class="container">
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 </div>
 
