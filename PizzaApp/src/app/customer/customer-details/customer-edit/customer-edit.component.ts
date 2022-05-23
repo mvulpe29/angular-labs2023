@@ -15,7 +15,7 @@ import {CITIES} from './cities.data';
 export class CustomerEditComponent implements OnInit {
     public emailFormControl: FormControl;
     public customerFormGroup: FormGroup;
-    public filteredCities: Observable<string[]>;
+    public filteredCities$: Observable<string[]>;
     private readonly cityFormControl: FormControl;
 
     constructor(@Inject(CUSTOMER_SERVICE) private customerService: ICustomerService) {
@@ -59,7 +59,7 @@ export class CustomerEditComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.filteredCities = this.cityFormControl.valueChanges.pipe(
+        this.filteredCities$ = this.cityFormControl.valueChanges.pipe(
             startWith(''),
             map(value => {
                 const filterValue = value.toLowerCase();
@@ -67,7 +67,7 @@ export class CustomerEditComponent implements OnInit {
             }),
         );
     }
-    
+
     onSubmit() {
         console.log({
             ...this.customerFormGroup.value,
