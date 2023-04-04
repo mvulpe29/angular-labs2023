@@ -13,7 +13,7 @@ export class PizzaRestService implements IPizzaService {
   constructor(private http: HttpClient) {
   }
 
-  getPizza(id: string): Observable<IPizza> {
+  getPizza(id: string): Observable<IPizza | undefined> {
     return this.http.get<IPizza>(`${this.url}/${id}.json`);
   }
 

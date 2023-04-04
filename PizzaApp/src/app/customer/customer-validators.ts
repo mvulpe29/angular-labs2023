@@ -7,6 +7,7 @@ export class CustomerValidators {
       if (control.value && suffix && (<string>(control.value)).endsWith(suffix)) {
         return {forbiddenEmail: "true"};
       }
+      return null;
     }
   }
 }
