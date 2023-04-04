@@ -11,7 +11,7 @@ import { CustomerValidators } from './customer-validators';
   }]
 })
 export class ForbiddenEmailValidatorDirective implements Validator {
-  private _onChange;
+  private _onChange: () => void;
 
   constructor() {
   }

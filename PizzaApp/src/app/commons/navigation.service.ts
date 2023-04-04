@@ -10,7 +10,7 @@ export interface INavigationService {
 
   openCustomers(): Promise<boolean>;
 
-  getParam(activatedRoute, paramName: string): string;
+  getParam(activatedRoute: ActivatedRoute, paramName: string): string;
 }
 
 @Injectable()
