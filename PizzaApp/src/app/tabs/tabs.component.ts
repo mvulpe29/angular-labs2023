@@ -9,10 +9,10 @@ import {IPizza, IReview} from "../app.model";
 export class TabsComponent {
 
   @Input()
-  private pizza: IPizza;
+  pizza: IPizza;
 
   private tab: number;
-  private newReview: IReview;
+  newReview: IReview;
 
   constructor() {
     this.tab = 1;
