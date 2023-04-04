@@ -1,88 +1,87 @@
 <div class="card">
-    <div class="card-content">
-        <form [formGroup]="customerFormGroup" (ngSubmit)="onSubmit()">
-            <div class="row">
-                <div class="col-12 col-md-3">
-                    <label>First name</label>
-                    <input formControlName="firstName"/>
-                    <div class="error"
-                         *ngIf="customerFormGroup.get('firstName').invalid && (customerFormGroup.get('firstName').dirty || customerFormGroup.get('firstName').touched)">
-                        <label *ngIf="customerFormGroup.get('firstName').errors.required">First name required</label>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-3">
-                    <label>Last name</label>
-                    <input formControlName="lastName"/>
-
-                    <div class="error"
-                         *ngIf="customerFormGroup.get('lastName').invalid && (customerFormGroup.get('lastName').dirty || customerFormGroup.get('lastName').touched)">
-                        <label *ngIf="customerFormGroup.get('lastName').errors.required">Last name required</label>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-3">
-                    <label>Email</label>
-                    <input type="email" [formControl]="emailFormControl"/>
-
-                    <div class="error"
-                         *ngIf="emailFormControl.invalid && (emailFormControl.dirty || emailFormControl.touched)">
-                        <label *ngIf="emailFormControl.errors.required">Email required</label>
-                        <label *ngIf="emailFormControl.errors.email">Email not valid</label>
-                        <label *ngIf="emailFormControl.errors.uniqueEmail">Email taken</label>
-                        <label *ngIf="!emailFormControl.errors.email && emailFormControl.errors.forbiddenEmail">Email
-                            forbidden</label>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-3">
-                    <label>Phone</label>
-                    <input formControlName="phone"/>
-                </div>
-            </div>
-
-            <h6>Address</h6>
-
-            <ng-container formGroupName="address">
-                <div class="row">
-                    <div class="col-12 col-md-3">
-                        <label>Street</label>
-                        <input formControlName="street"/>
-                    </div>
-                    <div class="col-12 col-md-3">
-                        <label>City</label>
-                        <input formControlName="city"/>
-                    </div>
-                    <div class="col-12 col-md-3">
-                        <label>Zip Code</label>
-                        <input formControlName="zipCode"/>
-                    </div>
-                    <div class="col-12 col-md-3">
-                        <label>Country</label>
-                        <input formControlName="country"/>
-                    </div>
-                </div>
-            </ng-container>
-
-            <div class="d-flex justify-content-end">
-                <button class="btn" type="submit" [disabled]="customerFormGroup.invalid">Save</button>
-            </div>
-        </form>
-
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <p>Initial value</p>
-                <code>
-                    <pre>{{customer | json}}</pre>
-                </code>
-            </div>
-            <div class="col-12 col-md-6">
-                <p>Form value</p>
-                <code>
-                    <pre>{{customerFormGroup.value | json}}</pre>
-                </code>
-            </div>
+  <div class="card-content">
+    <form [formGroup]="customerFormGroup" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-12 col-md-3">
+          <label>First name</label>
+          <input formControlName="firstName"/>
+          <div class="error"
+               *ngIf="customerFormGroup.get('firstName')?.invalid && (customerFormGroup.get('firstName')?.dirty || customerFormGroup.get('firstName')?.touched)">
+            <label *ngIf="customerFormGroup.get('firstName')?.errors?.['required']">First name required</label>
+          </div>
         </div>
 
+        <div class="col-12 col-md-3">
+          <label>Last name</label>
+          <input formControlName="lastName"/>
+
+          <div class="error"
+               *ngIf="customerFormGroup.get('lastName')?.invalid && (customerFormGroup.get('lastName')?.dirty || customerFormGroup.get('lastName')?.touched)">
+            <label *ngIf="customerFormGroup.get('lastName')?.errors?.['required']">Last name required</label>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-3">
+          <label>Email</label>
+          <input type="email" [formControl]="emailFormControl"/>
+
+          <div class="error"
+               *ngIf="emailFormControl.invalid && (emailFormControl.dirty || emailFormControl.touched)">
+            <label *ngIf="emailFormControl.errors && emailFormControl.errors['required']">Email required</label>
+            <label *ngIf="emailFormControl.errors && emailFormControl.errors['email']">Email not valid</label>
+            <label *ngIf="emailFormControl.errors && emailFormControl.errors['uniqueEmail']">Email taken</label>
+            <label *ngIf="emailFormControl.errors && !emailFormControl.errors['email'] && emailFormControl.errors['forbiddenEmail']">Email forbidden</label>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-3">
+          <label>Phone</label>
+          <input formControlName="phone"/>
+        </div>
+      </div>
+
+      <h6>Address</h6>
+
+      <ng-container formGroupName="address">
+        <div class="row">
+          <div class="col-12 col-md-3">
+            <label>Street</label>
+            <input formControlName="street"/>
+          </div>
+          <div class="col-12 col-md-3">
+            <label>City</label>
+            <input formControlName="city"/>
+          </div>
+          <div class="col-12 col-md-3">
+            <label>Zip Code</label>
+            <input formControlName="zipCode"/>
+          </div>
+          <div class="col-12 col-md-3">
+            <label>Country</label>
+            <input formControlName="country"/>
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="d-flex justify-content-end">
+        <button class="btn" type="submit" [disabled]="customerFormGroup.invalid">Save</button>
+      </div>
+    </form>
+
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <p>Initial value</p>
+        <code>
+          <pre>{{customer | json}}</pre>
+        </code>
+      </div>
+      <div class="col-12 col-md-6">
+        <p>Form value</p>
+        <code>
+          <pre>{{customerFormGroup.value | json}}</pre>
+        </code>
+      </div>
     </div>
+
+  </div>
 </div>

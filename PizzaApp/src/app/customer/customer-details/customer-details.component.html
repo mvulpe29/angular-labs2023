@@ -4,4 +4,6 @@
     Back
 </a>
 
-<app-customer-edit [customer]="customer"></app-customer-edit>
+<ng-container *ngIf="customer">
+  <app-customer-edit [customer]="customer"></app-customer-edit>
+</ng-container>

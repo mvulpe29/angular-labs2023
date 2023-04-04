@@ -2,6 +2,7 @@ import {IPizza} from "./pizza.model";
 
 export let PIZZAS: Array<IPizza> = [
   {
+    id: '1',
     name: '4 STAGIONI',
     price: 27.5,
     weight: 550,
@@ -22,6 +23,7 @@ export let PIZZAS: Array<IPizza> = [
     }]
   },
   {
+    id: '2',
     name: 'DIAVOLA',
     price: 25,
     weight: 450,
