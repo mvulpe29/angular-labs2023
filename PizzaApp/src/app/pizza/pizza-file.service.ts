@@ -10,8 +10,8 @@ export class PizzaFileService implements IPizzaService {
   constructor() {
   }
 
-  getPizza(id: string): Observable<IPizza> {
-    return of(PIZZAS.find(pizza => pizza._id === id));
+  getPizza(id: string): Observable<IPizza | undefined> {
+    return of(PIZZAS.find(pizza => pizza.id === id));
   }
 
   getPizzas(): Observable<Array<IPizza>> {

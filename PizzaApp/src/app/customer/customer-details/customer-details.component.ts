@@ -12,7 +12,7 @@ import {INavigationService, NAVIGATION_SERVICE} from '../../commons/navigation.s
 })
 export class CustomerDetailsComponent implements OnInit {
 
-  customer: ICustomer;
+  customer: ICustomer | undefined;
 
   constructor(@Inject(CUSTOMER_SERVICE) private customerService: ICustomerService,
               @Inject(NAVIGATION_SERVICE) private navigationService: INavigationService,
