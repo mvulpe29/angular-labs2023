@@ -6,8 +6,8 @@
           <label>First name</label>
           <input formControlName="firstName"/>
           <div class="error"
-               *ngIf="customerFormGroup.get('firstName').invalid && (customerFormGroup.get('firstName').dirty || customerFormGroup.get('firstName').touched)">
-            <label *ngIf="customerFormGroup.get('firstName').errors.required">First name required</label>
+               *ngIf="customerFormGroup.get('firstName')?.invalid && (customerFormGroup.get('firstName')?.dirty || customerFormGroup.get('firstName')?.touched)">
+            <label *ngIf="customerFormGroup.get('firstName')?.errors?.['required']">First name required</label>
           </div>
         </div>
 
@@ -16,8 +16,8 @@
           <input formControlName="lastName"/>
 
           <div class="error"
-               *ngIf="customerFormGroup.get('lastName').invalid && (customerFormGroup.get('lastName').dirty || customerFormGroup.get('lastName').touched)">
-            <label *ngIf="customerFormGroup.get('lastName').errors.required">Last name required</label>
+               *ngIf="customerFormGroup.get('lastName')?.invalid && (customerFormGroup.get('lastName')?.dirty || customerFormGroup.get('lastName')?.touched)">
+            <label *ngIf="customerFormGroup.get('lastName')?.errors?.['required']">Last name required</label>
           </div>
         </div>
 
@@ -27,8 +27,8 @@
 
           <div class="error"
                *ngIf="emailFormControl.invalid && (emailFormControl.dirty || emailFormControl.touched)">
-            <label *ngIf="emailFormControl.errors.required">Email required</label>
-            <label *ngIf="emailFormControl.errors.email">Email not valid</label>
+            <label *ngIf="emailFormControl.errors && emailFormControl.errors['required']">Email required</label>
+            <label *ngIf="emailFormControl.errors && emailFormControl.errors['email']">Email not valid</label>
           </div>
         </div>
 
