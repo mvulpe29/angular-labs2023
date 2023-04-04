@@ -9,7 +9,7 @@ import {IPizza} from "../app.model";
 export class TabsComponent {
 
   @Input()
-  private pizza: IPizza;
+  pizza: IPizza;
 
   private tab: number;
 
