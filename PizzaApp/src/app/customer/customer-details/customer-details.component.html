@@ -1,6 +1,6 @@
 <a class="btn-flat" style="padding-left: 0" (click)="goBack()"><i class="material-icons left">keyboard_arrow_left</i>Back</a>
 
-<div class="card">
+<div class="card" *ngIf="customer">
   <div class="card-content">
     <p class="card-title"></p>
 
@@ -10,7 +10,7 @@
           <label>First name</label>
           <input name="firstName" [ngModel]="customer.firstName" #firstNameControl="ngModel" required/>
           <div class="error" *ngIf="firstNameControl.invalid && (firstNameControl.dirty || firstNameControl.touched)">
-            <label *ngIf="firstNameControl.errors.required">First name required</label>
+            <label *ngIf="firstNameControl.errors && firstNameControl.errors['required']">First name required</label>
           </div>
         </div>
 
@@ -19,7 +19,7 @@
           <input name="lastName" [ngModel]="customer.lastName" #lastNameControl="ngModel" required/>
 
           <div class="error" *ngIf="lastNameControl.invalid && (lastNameControl.dirty || lastNameControl.touched)">
-            <label *ngIf="lastNameControl.errors.required">Last name required</label>
+            <label *ngIf="lastNameControl.errors && lastNameControl.errors['required']">Last name required</label>
           </div>
         </div>
 
@@ -28,8 +28,8 @@
           <input type="email" name="email" [ngModel]="customer.email" #emailControl="ngModel" required email/>
 
           <div class="error" *ngIf="emailControl.invalid && (emailControl.dirty || emailControl.touched)">
-            <label *ngIf="emailControl.errors.required">Email required</label>
-            <label *ngIf="emailControl.errors.email">Email not valid</label>
+            <label *ngIf="!!emailControl.errors && emailControl.errors['required']">Email required</label>
+            <label *ngIf="!!emailControl.errors && emailControl.errors['email']">Email not valid</label>
           </div>
         </div>
 

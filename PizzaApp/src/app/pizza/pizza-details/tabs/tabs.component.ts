@@ -10,7 +10,7 @@ import {IPizzaService, PIZZA_SERVICE} from "../../pizza.service";
 export class TabsComponent {
 
   @Input()
-  private pizza: IPizza;
+  pizza: IPizza;
 
   private tab: number;
 
