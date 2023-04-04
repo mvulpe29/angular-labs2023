@@ -2,28 +2,22 @@ import {Injectable, InjectionToken, Provider} from '@angular/core';
 
 import {ICustomer} from './customer.model';
 import {CUSTOMERS} from './customer.data';
-import {Observable} from "rxjs";
+import {Observable, of} from "rxjs";
 
 export interface ICustomerService {
   getCustomers(): Observable<Array<ICustomer>>;
 
-  getCustomer(id: string): Observable<ICustomer>;
+  getCustomer(id: string): Observable<ICustomer | undefined>;
 }
 
 @Injectable()
 export class CustomerFileService implements ICustomerService {
   getCustomers(): Observable<Array<ICustomer>> {
-    return Observable.create(observer => {
-      observer.next(CUSTOMERS);
-      observer.complete();
-    });
+    return of(CUSTOMERS)
   }
 
-  getCustomer(id: string): Observable<ICustomer> {
-    return Observable.create(observer => {
-      observer.next(CUSTOMERS.find(customer => customer._id === id));
-      observer.complete();
-    });
+  getCustomer(id: string): Observable<ICustomer | undefined> {
+    return of(CUSTOMERS.find(customer => customer._id === id))
   }
 }
 

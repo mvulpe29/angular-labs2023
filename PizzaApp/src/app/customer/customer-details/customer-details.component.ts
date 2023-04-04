@@ -13,7 +13,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class CustomerDetailsComponent implements OnInit {
 
-  public customer: ICustomer;
+  customer: ICustomer | undefined;
 
   constructor(@Inject(CUSTOMER_SERVICE) private customerService: ICustomerService,
               @Inject(NAVIGATION_SERVICE) private navigationService: INavigationService,
@@ -32,7 +32,7 @@ export class CustomerDetailsComponent implements OnInit {
   onSubmit(customerFormGroup: FormGroup) {
     console.log({
       ...customerFormGroup.value,
-      _id: this.customer._id
+      _id: this.customer ? this.customer._id : null
     });
   }
 }
