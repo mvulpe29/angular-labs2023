@@ -11,14 +11,14 @@ import {PizzaListComponent} from './pizza/pizza-list/pizza-list.component';
 import {IngredientsComponent} from './pizza/pizza-details/tabs/ingredients/ingredients.component';
 import {ExtrasComponent} from './pizza/pizza-details/tabs/extras/extras.component';
 import {PizzaDetailsComponent} from './pizza/pizza-details/pizza-details.component';
-import {RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {CommonsModule} from './commons/commons.module';
 import {CustomerListComponent} from './customer/customer-list/customer-list.component';
 import {CustomerDetailsComponent} from './customer/customer-details/customer-details.component';
 import {CustomerServiceProvider} from './customer/customer.service';
 
 
-const ROUTES = [
+const ROUTES: Routes = [
   {path: '', redirectTo: '/pizzas', pathMatch: 'full'},
   {
     path: 'pizzas',
